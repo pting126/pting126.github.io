@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alex Dev | Artistic Profile</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'], // Classical/Artistic feel
+                    },
+                    colors: {
+                        slate: { 900: '#0f172a', 950: '#020617' },
+                        art: {
+                            purple: '#a855f7', // Creative/Royal
+                            gold: '#fbbf24',   // Performance/Stage light
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Elegant dark scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #020617; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 3px; }
+        
+        .glass-nav {
+            background: rgba(2, 6, 23, 0.85);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        
+        /* Custom Audio Player Styling */
+        audio {
+            width: 100%;
+            height: 32px;
+            filter: invert(1) hue-rotate(280deg) saturate(0.5); /* Purple tint */
+            opacity: 0.8;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-300 font-sans antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 top-0 glass-nav">
+        <div class="max-w-5xl mx-auto px-6 h-20 flex items-center justify-between">
+            <!-- Link back to main technical/research site -->
+            <a href="index.html" class="group flex items-center gap-2 text-xs font-medium tracking-widest uppercase text-slate-500 hover:text-white transition">
+                <i data-lucide="arrow-left" class="w-4 h-4 group-hover:-translate-x-1 transition"></i>
+                Back to Research
+            </a>
+            
+            <div class="text-lg font-serif italic text-slate-100">Alex Dev / Music</div>
+
+            <div class="hidden md:flex gap-8 text-sm font-medium text-slate-400">
+                <a href="#compositions" class="hover:text-art-purple transition">Compositions</a>
+                <a href="#performances" class="hover:text-art-purple transition">Performances</a>
+                <a href="#experience" class="hover:text-art-purple transition">Experience</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Artistic Hero -->
+    <section class="relative pt-40 pb-20 px-6 border-b border-slate-900">
+        <div class="max-w-4xl mx-auto text-center">
+            <p class="text-art-purple text-sm font-bold tracking-widest uppercase mb-4">Artistic Profile</p>
+            <h1 class="text-5xl md:text-7xl font-serif text-slate-100 mb-8 leading-tight">
+                Sound, Space, <span class="italic text-slate-500">&</span> Structure
+            </h1>
+            <p class="text-xl text-slate-400 max-w-2xl mx-auto font-light leading-relaxed">
+                A collection of electroacoustic works, improvisations, and interactive performance systems.
+            </p>
+        </div>
+    </section>
+
+    <!-- FEATURED WORKS (The "Works" Section) -->
+    <section id="compositions" class="py-20">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="flex items-baseline justify-between mb-12 border-b border-slate-800 pb-4">
+                <h2 class="text-3xl font-serif text-slate-100">Selected Works</h2>
+                <span class="text-xs font-mono text-slate-500">2021 — Present</span>
+            </div>
+
+            <div class="space-y-24">
+                
+                <!-- Work 1: Major Composition -->
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
+                    <div class="md:col-span-4 text-right md:text-right order-2 md:order-1">
+                        <h3 class="text-2xl font-bold text-slate-100 mb-1">Fragments of Time</h3>
+                        <p class="text-art-purple font-mono text-xs mb-4">Fixed Media (Stereo) • 8:45</p>
+                        
+                        <div class="space-y-4 text-sm text-slate-400 leading-relaxed">
+                            <p>A study in granular time-stretching utilizing custom SuperCollider patches. The source material consists entirely of recordings of ticking clocks and mechanical metronomes.</p>
+                            <p class="italic text-slate-500">Premiered at ICMC 2023</p>
+                        </div>
+
+                        <div class="mt-6 flex justify-end gap-3">
+                            <button class="flex items-center gap-2 px-4 py-2 border border-slate-700 rounded hover:bg-slate-800 transition text-xs uppercase tracking-wider">
+                                <i data-lucide="file-text" class="w-3 h-3"></i> Program Notes
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="md:col-span-8 order-1 md:order-2">
+                        <div class="bg-slate-900 aspect-video rounded-lg border border-slate-800 flex items-center justify-center relative group overflow-hidden">
+                            <!-- Placeholder for waveform visual or album art -->
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent opacity-60"></div>
+                            <i data-lucide="play-circle" class="w-16 h-16 text-slate-600 group-hover:text-art-purple transition duration-500"></i>
+                        </div>
+                        <div class="mt-4 bg-slate-900 p-3 rounded border border-slate-800">
+                            <audio controls></audio>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Work 2: Mixed Media / Interactive -->
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
+                    <div class="md:col-span-4 text-right md:text-right order-2 md:order-1">
+                        <h3 class="text-2xl font-bold text-slate-100 mb-1">The Glass Wall</h3>
+                        <p class="text-art-purple font-mono text-xs mb-4">Cello & Live Electronics • 12:00</p>
+                        
+                        <div class="space-y-4 text-sm text-slate-400 leading-relaxed">
+                            <p>Interactive piece for Cello and Max/MSP. The cellist wears a Myo armband, controlling the feedback intensity of a spectral delay line via muscle tension.</p>
+                            <p class="italic text-slate-500">Performed by [Cellist Name] at [Venue]</p>
+                        </div>
+                    </div>
+
+                    <div class="md:col-span-8 order-1 md:order-2">
+                        <div class="bg-slate-900 aspect-video rounded-lg border border-slate-800 flex items-center justify-center">
+                            <i data-lucide="youtube" class="w-12 h-12 text-slate-700"></i>
+                            <!-- Embed Video Here -->
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- PERFORMANCES (The "Performance History" Section) -->
+    <section id="performances" class="py-20 bg-slate-900/50">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="flex items-baseline justify-between mb-12 border-b border-slate-800 pb-4">
+                <h2 class="text-3xl font-serif text-slate-100">Performance History</h2>
+            </div>
+
+            <div class="relative border-l border-slate-800 ml-3 space-y-12">
+                
+                <!-- Performance Item -->
+                <div class="relative pl-8 group">
+                    <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-slate-700 group-hover:bg-art-gold transition"></div>
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-baseline mb-2">
+                        <h4 class="text-lg font-bold text-slate-200">NIME Conference 2024</h4>
+                        <span class="font-mono text-xs text-slate-500">Utrecht, Netherlands</span>
+                    </div>
+                    <p class="text-art-purple text-sm mb-2">Live Electronics Soloist</p>
+                    <p class="text-slate-400 text-sm leading-relaxed">Performed "Gestural Study No. 1" using custom-built accelerometer gloves. Managed live diffusion of 8-channel audio.</p>
+                </div>
+
+                <!-- Performance Item -->
+                <div class="relative pl-8 group">
+                    <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-slate-700 group-hover:bg-art-gold transition"></div>
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-baseline mb-2">
+                        <h4 class="text-lg font-bold text-slate-200">University New Music Ensemble</h4>
+                        <span class="font-mono text-xs text-slate-500">Ann Arbor, MI</span>
+                    </div>
+                    <p class="text-art-purple text-sm mb-2">Laptop Orchestra Member</p>
+                    <p class="text-slate-400 text-sm leading-relaxed">Performed in the premiere of XYZ by Composer ABC. Utilized network synchronization via OSC to trigger samples in sync with 4 other laptop performers.</p>
+                </div>
+
+                <!-- Performance Item -->
+                <div class="relative pl-8 group">
+                    <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-slate-700 group-hover:bg-art-gold transition"></div>
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-baseline mb-2">
+                        <h4 class="text-lg font-bold text-slate-200">Senior Recital</h4>
+                        <span class="font-mono text-xs text-slate-500">University Auditorium</span>
+                    </div>
+                    <p class="text-art-purple text-sm mb-2">Primary Artist</p>
+                    <p class="text-slate-400 text-sm leading-relaxed">A 60-minute program featuring works for Piano and Electronics, fixed media playback, and live coding improvisation.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPERIENCES (The "CV/Experiences" Section) -->
+    <section id="experience" class="py-20">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="flex items-baseline justify-between mb-12 border-b border-slate-800 pb-4">
+                <h2 class="text-3xl font-serif text-slate-100">Musical Experience</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Card 1 -->
+                <div class="bg-slate-900 p-6 rounded border border-slate-800">
+                    <div class="text-art-gold mb-4"><i data-lucide="mic-2"></i></div>
+                    <h3 class="text-lg font-bold text-white mb-1">Ensemble Experience</h3>
+                    <ul class="space-y-2 text-sm text-slate-400 mt-4">
+                        <li>• University Jazz Band (Piano) - 2020-2024</li>
+                        <li>• Contemporary Improvisation Lab - 2023</li>
+                        <li>• Laptop Orchestra (PLE) - 2022-2024</li>
+                    </ul>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-slate-900 p-6 rounded border border-slate-800">
+                    <div class="text-art-gold mb-4"><i data-lucide="music"></i></div>
+                    <h3 class="text-lg font-bold text-white mb-1">Training</h3>
+                    <ul class="space-y-2 text-sm text-slate-400 mt-4">
+                        <li>• Classical Piano (12 years)</li>
+                        <li>• Synthesis & Sound Design (Advanced)</li>
+                        <li>• Studio Recording Techniques</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-slate-900 text-center">
+        <a href="index.html" class="text-slate-500 hover:text-white text-sm transition mb-4 block">
+            &larr; Return to Research Portfolio
+        </a>
+        <div class="text-slate-600 text-xs">
+            &copy; 2024 Alex Dev • Artistic Profile
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
