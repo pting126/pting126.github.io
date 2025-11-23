@@ -9,7 +9,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
-    <!-- Fonts: SAME AS index.html -->
+    <!-- Fonts (same as index) -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 
     <script>
@@ -22,17 +22,17 @@
                     },
                     colors: {
                         brand: {
-                            900: '#494E65', // darkest
-                            800: '#5C6380',
-                            700: '#717999',
-                            600: '#8C92AC',
-                            500: '#A7ABBF',
-                            400: '#C1C5D2',
-                            300: '#DCDEE6', // lightest
+                            900: '#181410', // deep background
+                            800: '#1f1a15',
+                            700: '#2b2621',
+                            600: '#3b3730',
+                            500: '#5a5348',
+                            400: '#8c7460',
+                            300: '#e5dfd6',
                         },
                         accent: {
-                            400: '#DCDEE6',
-                            500: '#C1C5D2',
+                            400: '#f5f5f5',
+                            500: '#e5dfd6',
                         }
                     }
                 }
@@ -41,61 +41,36 @@
     </script>
 
     <style>
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: #DCDEE6; }  /* brand-300 */
-        ::-webkit-scrollbar-thumb { background: #8C92AC; border-radius: 3px; } /* brand-600 */
-        ::-webkit-scrollbar-thumb:hover { background: #717999; } /* brand-700 */
-        
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #181410; }
+        ::-webkit-scrollbar-thumb { background: #3b3730; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #5a5348; }
+
         .glass-nav {
-            background: rgba(244, 245, 248, 0.9);
-            backdrop-filter: blur(16px);
-            border-bottom: 1px solid rgba(73, 78, 101, 0.18); /* brand-900 */
+            background: rgba(24, 20, 16, 0.9);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid rgba(229, 223, 214, 0.15);
         }
 
-        /* Gradient blobs for subtle animated background */
-        .gradient-orb {
-            position: absolute;
-            border-radius: 9999px;
-            filter: blur(50px);
-            opacity: 0.55;
-            pointer-events: none;
-            mix-blend-mode: multiply;
+        .hover-card {
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
         }
-        .orb-1 {
-            width: 380px;
-            height: 380px;
-            background: radial-gradient(circle at 30% 30%, #DCDEE6, #A7ABBF, #717999);
-            top: -60px;
-            left: -80px;
-            animation: float1 22s ease-in-out infinite alternate;
-        }
-        .orb-2 {
-            width: 420px;
-            height: 420px;
-            background: radial-gradient(circle at 70% 70%, #C1C5D2, #5C6380, #494E65);
-            bottom: -120px;
-            right: -60px;
-            animation: float2 26s ease-in-out infinite alternate;
+        .hover-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7);
+            border-color: #8c7460;
+            background: rgba(31, 26, 21, 0.95);
         }
 
-        @keyframes float1 {
-            0%   { transform: translate3d(0, 0, 0) scale(1); }
-            100% { transform: translate3d(30px, 40px, 0) scale(1.05); }
-        }
-        @keyframes float2 {
-            0%   { transform: translate3d(0, 0, 0) scale(1.05); }
-            100% { transform: translate3d(-40px, -30px, 0) scale(0.97); }
-        }
-
-        /* Video Container for 16:9 Aspect Ratio */
+        /* 16:9 video container */
         .video-container {
             position: relative;
-            padding-bottom: 56.25%; /* 16:9 */
+            padding-bottom: 56.25%;
             height: 0;
             overflow: hidden;
-            border-radius: 0.9rem;
-            border: 1px solid #A7ABBF; /* brand-500 */
-            background: linear-gradient(135deg, #DCDEE6 0%, #C1C5D2 40%, #A7ABBF 100%);
+            border-radius: 0.75rem;
+            border: 1px solid #3b3730;
+            background: #000;
         }
         .video-container iframe {
             position: absolute;
@@ -104,67 +79,53 @@
             width: 100%;
             height: 100%;
         }
-
-        /* Slight hover lift for cards */
-        .hover-card {
-            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background 0.25s ease;
-        }
-        .hover-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 18px 40px rgba(73, 78, 101, 0.28);
-            border-color: #717999; /* brand-700 */
-            background: rgba(220, 222, 230, 0.95);
-        }
     </style>
 </head>
-<body class="relative min-h-screen bg-gradient-to-b from-brand-300 via-brand-400 to-brand-500 text-brand-900 font-sans antialiased overflow-x-hidden">
 
-    <!-- Gradient orbs -->
-    <div class="gradient-orb orb-1"></div>
-    <div class="gradient-orb orb-2"></div>
+<body class="bg-brand-900 text-accent-400 font-sans antialiased">
 
-    <!-- Navigation -->
+    <!-- NAV -->
     <nav class="fixed w-full z-50 top-0 glass-nav">
         <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
-            <a href="index.html" class="font-mono text-sm md:text-base font-semibold text-brand-800 tracking-tight flex items-center gap-2">
+            <a href="index.html" class="font-mono text-sm md:text-base font-semibold text-accent-400 tracking-tight flex items-center gap-2">
                 <i data-lucide="arrow-left" class="w-4 h-4"></i>
                 <span>&lt; Back to Research /&gt;</span>
             </a>
             
-            <div class="hidden md:flex gap-8 text-sm font-medium text-brand-700">
-                <a href="#acappella" class="hover:text-brand-900 transition">Seagull K</a>
-                <a href="#compositions" class="hover:text-brand-900 transition">Compositions</a>
-                <a href="#history" class="hover:text-brand-900 transition">History</a>
+            <div class="hidden md:flex gap-8 text-xs md:text-sm font-medium text-brand-300">
+                <a href="#acappella" class="hover:text-accent-400 transition">Seagull K</a>
+                <a href="#compositions" class="hover:text-accent-400 transition">Compositions</a>
+                <a href="#history" class="hover:text-accent-400 transition">History</a>
             </div>
 
-            <button id="menu-btn" class="md:hidden text-brand-800">
+            <button id="menu-btn" class="md:hidden text-accent-400">
                 <i data-lucide="menu"></i>
             </button>
         </div>
 
         <!-- Mobile menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-brand-300/95 border-t border-brand-500 p-4 space-y-3 text-sm font-medium text-brand-800">
-            <a href="#acappella" class="block hover:text-brand-900">Seagull K</a>
-            <a href="#compositions" class="block hover:text-brand-900">Compositions</a>
-            <a href="#history" class="block hover:text-brand-900">History</a>
+        <div id="mobile-menu" class="hidden md:hidden bg-brand-900 border-t border-brand-700 p-4 space-y-3 text-sm font-medium text-brand-200">
+            <a href="#acappella" class="block hover:text-accent-400">Seagull K</a>
+            <a href="#compositions" class="block hover:text-accent-400">Compositions</a>
+            <a href="#history" class="block hover:text-accent-400">History</a>
         </div>
     </nav>
 
-    <!-- Hero: your portrait + moving wave -->
-    <section class="relative min-h-[60vh] flex items-center pt-24 pb-12 px-6 overflow-hidden">
-        <!-- Wave canvas like index.html -->
-        <canvas id="waveCanvas" class="absolute top-0 left-0 w-full h-full opacity-40 pointer-events-none"></canvas>
+    <!-- HERO + WAVE -->
+    <section class="relative min-h-[65vh] flex items-center pt-24 pb-12 overflow-hidden">
+        <!-- Wave background canvas -->
+        <canvas id="waveCanvas" class="absolute inset-0 w-full h-full opacity-40 pointer-events-none"></canvas>
 
-        <div class="relative z-10 max-w-5xl mx-auto w-full">
-            <div class="grid grid-cols-1 md:grid-cols-[auto,1.4fr] gap-10 items-center bg-brand-300/70 border border-brand-500/80 rounded-3xl px-8 py-10 shadow-lg shadow-brand-700/25 backdrop-blur-lg">
+        <div class="relative z-10 max-w-5xl mx-auto px-6 w-full">
+            <div class="grid grid-cols-1 md:grid-cols-[auto,1.4fr] gap-10 items-center bg-gradient-to-b from-[#201b16] to-[#181410] border border-brand-700 rounded-3xl px-8 py-10 shadow-2xl shadow-black/70">
                 
-                <!-- Your photo (bigger) -->
+                <!-- Portrait (larger) -->
                 <div class="flex justify-center md:justify-start">
                     <div class="relative">
-                        <div class="absolute -inset-2 rounded-3xl bg-gradient-to-tr from-brand-500 via-brand-700 to-brand-300 opacity-70 blur-xl"></div>
-                        <div class="relative w-52 h-52 md:w-64 md:h-64 rounded-3xl overflow-hidden border border-brand-500 bg-brand-500/40">
+                        <div class="absolute -inset-2 rounded-[2.2rem] bg-gradient-to-tr from-brand-400 via-brand-600 to-brand-300 opacity-70 blur-xl"></div>
+                        <div class="relative w-60 h-60 md:w-72 md:h-72 rounded-[2rem] overflow-hidden border border-brand-600 bg-black">
                             <img 
-                                src="files/TYP_music.jpg" 
+                                src="TYP_music.jpg" 
                                 alt="Portrait of Ting-Yu Pan" 
                                 class="w-full h-full object-cover"
                             >
@@ -174,124 +135,128 @@
 
                 <!-- Text -->
                 <div class="text-center md:text-left space-y-4">
-                    <p class="text-xs font-mono tracking-[0.25em] uppercase text-brand-700">
+                    <p class="text-[11px] md:text-xs font-mono tracking-[0.28em] uppercase text-brand-300">
                         Artistic Profile
                     </p>
-                    <h1 class="text-3xl md:text-4xl lg:text-5xl font-semibold text-brand-900 leading-tight">
+                    <h1 class="text-3xl md:text-4xl lg:text-5xl font-semibold text-accent-400 leading-tight">
                         Sound, Space, &amp; Structure
                     </h1>
-                    <ul class="text-sm md:text-base text-brand-700 space-y-2 max-w-xl md:max-w-2xl md:pr-6">
+                    <ul class="text-sm md:text-base text-brand-300 space-y-2 max-w-xl md:max-w-2xl md:pr-4">
                         <li>• Professional a cappella performer (Seagull K, 10+ years).</li>
-                        <li>• Composer, arranger, and producer for band and vocal projects.</li>
-                        <li>• Using performance experience to design AI tools for singers.</li>
+                        <li>• Composer / arranger / producer for vocal and band projects.</li>
+                        <li>• Designing AI tools grounded in real rehearsal and performance.</li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SEAGULL K SECTION (FIRST MAIN SECTION) -->
-    <section id="acappella" class="py-16 bg-brand-300/70 border-y border-brand-500/70 relative">
+    <!-- SEAGULL K -->
+    <section id="acappella" class="py-16 border-t border-brand-800 bg-gradient-to-b from-[#181410] to-[#1f1a15]">
         <div class="max-w-5xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8 border-b border-brand-500/70 pb-4">
-                <div class="flex flex-col gap-2">
-                    <h2 class="text-2xl md:text-3xl font-semibold text-brand-900">Vocal Research: Seagull K</h2>
-                    <ul class="text-sm text-brand-700 space-y-1">
-                        <li>• Professional a cappella group based in Taiwan.</li>
-                        <li>• Core influence for my a cappella datasets and separation work.</li>
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8 border-b border-brand-700 pb-4">
+                <div>
+                    <h2 class="text-2xl md:text-3xl font-semibold text-accent-400">Vocal Research: Seagull K</h2>
+                    <ul class="text-sm text-brand-300 space-y-1 mt-2">
+                        <li>• Professional Taiwanese a cappella group.</li>
+                        <li>• Primary artistic context for my research on ACappellaSet, SATB/VP separation, and rehearsal tools.</li>
                     </ul>
                 </div>
-                <a href="https://allmy.bio/seagullk.tw" target="_blank" class="text-xs font-mono text-brand-700 hover:text-brand-900 transition">
+                <a href="https://allmy.bio/seagullk.tw" target="_blank" class="text-xs font-mono text-brand-300 hover:text-accent-400 transition">
                     View Official Profile &rarr;
                 </a>
             </div>
 
-            <!-- Group photo + context -->
-            <div class="grid grid-cols-1 md:grid-cols-[1.1fr,1.3fr] gap-10 mb-12">
+            <!-- Group photo + bullets -->
+            <div class="grid grid-cols-1 md:grid-cols-[1.05fr,1.35fr] gap-10 mb-12">
                 
                 <!-- Group photo -->
-                <div class="hover-card bg-brand-300/80 rounded-3xl border border-brand-500/80 p-2">
-                    <!-- TODO: replace src with your actual Seagull K group photo -->
-                    <div class="rounded-2xl overflow-hidden bg-brand-400/50">
+                <div class="hover-card rounded-3xl border border-brand-700 bg-[#120f0c] p-2">
+                    <!-- TODO: replace src with your real Seagull K group photo -->
+                    <div class="rounded-2xl overflow-hi
+                        den bg-black">
                         <img 
-                            src="assets/seagullk_group.jpg" 
+                            src="SeagullK_sing.jpg" 
                             alt="Seagull K a cappella group" 
                             class="w-full h-full object-cover"
                         >
                     </div>
                 </div>
 
-                <!-- Text blurb (now bullets) -->
-                <div class="bg-brand-300/80 rounded-3xl border border-brand-500/80 p-6 hover-card">
-                    <h4 class="text-xs font-mono uppercase tracking-[0.2em] text-brand-700 mb-3">
+                <!-- Description bullets -->
+                <div class="hover-card rounded-3xl border border-brand-700 bg-[#1e1914] p-6">
+                    <h4 class="text-[11px] font-mono uppercase tracking-[0.2em] text-brand-300 mb-3">
                         Role &amp; Impact
                     </h4>
-                    <ul class="text-sm text-brand-800 space-y-2">
-                        <li>• Member of <span class="font-semibold text-brand-900">Seagull K</span> for 10+ years.</li>
+                    <ul class="text-sm text-brand-200 space-y-2">
+                        <li>• Member of <span class="font-semibold text-accent-400">Seagull K</span> for 10+ years.</li>
                         <li>• 100+ concerts and festivals (Taiwan & international).</li>
-                        <li>• Multilingual repertoire: Mandarin, Hakka, Taiwanese, Indigenous languages.</li>
+                        <li>• Repertoire across Mandarin, Hakka, Taiwanese, and Indigenous languages.</li>
                         <li>• Focus on blend, groove, and narrative arrangements.</li>
                     </ul>
 
-                    <h4 class="text-xs font-mono uppercase tracking-[0.2em] text-brand-700 mt-5 mb-2">
-                        Connection to Research
+                    <h4 class="text-[11px] font-mono uppercase tracking-[0.2em] text-brand-300 mt-6 mb-3">
+                        Research Connection
                     </h4>
-                    <ul class="text-sm text-brand-800 space-y-2">
-                        <li>• Motivates <span class="font-semibold text-brand-900">ACappellaSet</span> and SATB/VP separation tasks.</li>
-                        <li>• Informs evaluation metrics beyond SDR (blend, timing, phrasing).</li>
-                        <li>• Inspires designs for AI rehearsal tools (AcaMate, etc.).</li>
+                    <ul class="text-sm text-brand-200 space-y-2">
+                        <li>• Motivates <span class="font-semibold text-accent-400">ACappellaSet</span> and SATB/VP separation tasks.</li>
+                        <li>• Informs evaluation beyond SDR (blend, phrasing, timing).</li>
+                        <li>• Basis for AI rehearsal tools (e.g., AcaMate visualizing pitch/rhythm/dynamics).</li>
                     </ul>
                 </div>
             </div>
 
-            <!-- Cards: reel + cultural project -->
+            <!-- Reel + cultural project -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
                 
-                <!-- Item 1: Performance Highlights Reel -->
-                <div class="group bg-brand-300/80 rounded-3xl overflow-hidden border border-brand-500 hover-card flex flex-col">
-                    <div class="video-container bg-brand-400/60">
-                        <!-- Placeholder: replace with your highlight reel iframe when ready -->
-                        <div class="absolute inset-0 flex items-center justify-center text-center p-4">
-                            <span class="text-xs font-mono text-brand-700">
-                                [Optional] Embed a 2–3 minute Seagull K highlight reel here.<br>
-                                &lt;iframe src="https://drive.google.com/file/d/1JQiVHoanZhLyumEj9CPGyCKcxTd92fJh/view?usp=share_link" ...&gt;
-                            </span>
-                        </div>
+                <!-- Performance Highlights Reel (Google Drive embed) -->
+                <div class="hover-card rounded-3xl border border-brand-700 bg-[#1e1914] flex flex-col">
+                    <div class="video-container">
+                        <!-- 
+                            Replace YOUR_DRIVE_FILE_ID with your actual Google Drive file ID.
+                            Make sure the file is shared as "Anyone with the link can view".
+                        -->
+                        <iframe 
+                            src="https://drive.google.com/file/d/1JQiVHoanZhLyumEj9CPGyCKcxTd92fJh/preview"
+                            allow="autoplay"
+                            allowfullscreen>
+                        </iframe>
                     </div>
                     
                     <div class="p-6 flex-1 flex flex-col">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="text-lg font-semibold text-brand-900">Performance Highlights</h3>
-                            <span class="text-xs font-mono text-brand-700">Showreel</span>
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-lg font-semibold text-accent-400">Performance Highlights</h3>
+                            <span class="text-[11px] font-mono text-brand-300">Showreel</span>
                         </div>
-                        <ul class="text-sm text-brand-800 space-y-1">
-                            <li>• TV appearances and competition features.</li>
-                            <li>• Solo and ensemble moments across multiple genres.</li>
-                            <li>• Used as a quick “snapshot” for committees.</li>
+                        <ul class="text-sm text-brand-200 space-y-1">
+                            <li>• Short reel of TV features, competitions, and concert clips.</li>
+                            <li>• Includes both solo and ensemble moments.</li>
+                            <li>• Intended as a quick “who I am as a performer” overview.</li>
                         </ul>
                     </div>
                 </div>
 
-                <!-- Item 2: Cultural Project -->
-                <div class="group bg-brand-300/80 rounded-3xl overflow-hidden border border-brand-500 hover-card flex flex-col">
-                    <div class="h-44 bg-gradient-to-br from-brand-500 via-brand-700 to-brand-900 flex items-center justify-center">
-                        <i data-lucide="globe-2" class="w-12 h-12 text-brand-300 group-hover:scale-105 transition-transform duration-300"></i>
+                <!-- Cultural / research-relevant project -->
+                <div class="hover-card rounded-3xl border border-brand-700 bg-[#1e1914] flex flex-col">
+                    <div class="h-44 bg-gradient-to-br from-brand-600 via-brand-700 to-black flex items-center justify-center">
+                        <i data-lucide="globe-2" class="w-12 h-12 text-brand-300"></i>
                     </div>
                     <div class="p-6 flex-1 flex flex-col">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="text-lg font-semibold text-brand-900">"Taiya Ancient Wisdom"</h3>
-                            <span class="text-xs font-mono text-brand-700">Cross-Cultural</span>
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-lg font-semibold text-accent-400">"Taiya Ancient Wisdom"</h3>
+                            <span class="text-[11px] font-mono text-brand-300">Cross-Cultural</span>
                         </div>
                         
-                        <ul class="text-sm text-brand-800 mb-4 space-y-1 flex-1">
-                            <li>• Blends Indigenous Tayal melodies with modern a cappella textures.</li>
-                            <li>• Balances respect for traditional contours with new harmonies.</li>
-                            <li>• Connects ethnomusicology ideas with my technical work.</li>
+                        <ul class="text-sm text-brand-200 space-y-1 flex-1">
+                            <li>• Blends Indigenous Tayal melodic material with modern a cappella textures.</li>
+                            <li>• Balances traditional contours with new harmony and vocal production.</li>
+                            <li>• Connects ethnomusicology interests with my MIR and AI work.</li>
                         </ul>
                         
-                        <div class="flex gap-3 mt-auto">
-                            <a href="https://streetvoice.com/seagullk/songs/" target="_blank" class="flex-1 py-2 text-center border border-brand-600 rounded-lg hover:bg-brand-500/40 hover:text-brand-900 text-xs font-mono uppercase tracking-wider transition flex items-center justify-center gap-2">
-                                <i data-lucide="music-2" class="w-3 h-3"></i> Listen on StreetVoice
+                        <div class="mt-4">
+                            <a href="https://streetvoice.com/seagullk/songs/" target="_blank" class="inline-flex w-full justify-center items-center gap-2 py-2 text-xs font-mono uppercase tracking-wider border border-brand-500 rounded-lg hover:bg-brand-600/40 hover:text-accent-400 transition">
+                                <i data-lucide="music-2" class="w-3 h-3"></i>
+                                Listen on StreetVoice
                             </a>
                         </div>
                     </div>
@@ -299,70 +264,70 @@
 
             </div>
 
-            <!-- HISTORY TIMELINE (for Seagull K) -->
+            <!-- HISTORY TIMELINE (Seagull K) -->
             <section id="history" class="mt-4">
                 <div class="flex items-center justify-between mb-6">
-                    <h3 class="text-xl md:text-2xl font-semibold text-brand-900">Seagull K — Selected History</h3>
-                    <button id="toggle-history" class="text-xs font-mono text-brand-700 hover:text-brand-900 underline underline-offset-4">
+                    <h3 class="text-xl md:text-2xl font-semibold text-accent-400">Seagull K — Selected History</h3>
+                    <button id="toggle-history" class="text-xs font-mono text-brand-300 hover:text-accent-400 underline underline-offset-4">
                         Show full history
                     </button>
                 </div>
 
-                <div class="relative border-l border-brand-500/70 ml-3 space-y-8">
-                    <!-- Featured items (always visible) -->
+                <div class="relative border-l border-brand-700 ml-3 space-y-8">
+                    <!-- Always visible items -->
                     <div class="relative pl-8">
-                        <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-brand-600"></div>
-                        <h4 class="text-sm md:text-base font-semibold text-brand-900">Hakka Pop Music Awards</h4>
-                        <ul class="text-xs md:text-sm text-brand-800 mt-1 space-y-1">
+                        <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-brand-500"></div>
+                        <h4 class="text-sm md:text-base font-semibold text-accent-400">Hakka Pop Music Awards</h4>
+                        <ul class="text-xs md:text-sm text-brand-200 mt-1 space-y-1">
                             <li>• Award-winning a cappella arrangement.</li>
-                            <li>• Emphasis on Hakka language and contemporary sound.</li>
+                            <li>• Focus on Hakka language and contemporary vocal style.</li>
                         </ul>
                     </div>
 
                     <div class="relative pl-8">
-                        <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-brand-600"></div>
-                        <h4 class="text-sm md:text-base font-semibold text-brand-900">National Television Features</h4>
-                        <ul class="text-xs md:text-sm text-brand-800 mt-1 space-y-1">
-                            <li>• Multiple appearances on Taiwanese TV music programs.</li>
-                            <li>• Long-form performance segments (not just one song).</li>
+                        <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-brand-500"></div>
+                        <h4 class="text-sm md:text-base font-semibold text-accent-400">National Television Features</h4>
+                        <ul class="text-xs md:text-sm text-brand-200 mt-1 space-y-1">
+                            <li>• Multiple long-form performance segments on Taiwanese TV.</li>
+                            <li>• Showcases original arrangements and ensemble staging.</li>
                         </ul>
                     </div>
 
                     <div class="relative pl-8">
-                        <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-brand-600"></div>
-                        <h4 class="text-sm md:text-base font-semibold text-brand-900">Complete Vocal Arts Festival</h4>
-                        <ul class="text-xs md:text-sm text-brand-800 mt-1 space-y-1">
-                            <li>• Organizer and mentor for youth a cappella groups.</li>
-                            <li>• Workshops on blend, timing, and vocal health.</li>
+                        <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-brand-500"></div>
+                        <h4 class="text-sm md:text-base font-semibold text-accent-400">Complete Vocal Arts Festival</h4>
+                        <ul class="text-xs md:text-sm text-brand-200 mt-1 space-y-1">
+                            <li>• Organizer & mentor for youth a cappella workshops.</li>
+                            <li>• Focus on blend, timing, and vocal health.</li>
                         </ul>
                     </div>
 
-                    <!-- Extra history (hidden by default) -->
+                    <!-- Extra history -->
                     <div id="full-history" class="hidden space-y-8 pt-4">
                         <div class="relative pl-8">
-                            <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-brand-600/80"></div>
-                            <h4 class="text-sm md:text-base font-semibold text-brand-900">International A Cappella Competitions</h4>
-                            <ul class="text-xs md:text-sm text-brand-800 mt-1 space-y-1">
-                                <li>• Represented Taiwan in multiple international contests.</li>
-                                <li>• Experience with competition-level staging and mic techniques.</li>
+                            <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-brand-500/80"></div>
+                            <h4 class="text-sm md:text-base font-semibold text-accent-400">International Competitions</h4>
+                            <ul class="text-xs md:text-sm text-brand-200 mt-1 space-y-1">
+                                <li>• Represented Taiwan in international a cappella contests.</li>
+                                <li>• Experience with competition-level miking and live sound.</li>
                             </ul>
                         </div>
 
                         <div class="relative pl-8">
-                            <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-brand-600/80"></div>
-                            <h4 class="text-sm md:text-base font-semibold text-brand-900">Educational Outreach &amp; HCAC</h4>
-                            <ul class="text-xs md:text-sm text-brand-800 mt-1 space-y-1">
+                            <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-brand-500/80"></div>
+                            <h4 class="text-sm md:text-base font-semibold text-accent-400">HCAC & Education</h4>
+                            <ul class="text-xs md:text-sm text-brand-200 mt-1 space-y-1">
                                 <li>• Co-founded Hsinchu Contemporary A Cappella Center (HCAC).</li>
-                                <li>• Led coaching sessions and rehearsal labs for emerging groups.</li>
+                                <li>• Built rehearsal labs that influenced my AI rehearsal-tool design.</li>
                             </ul>
                         </div>
 
                         <div class="relative pl-8">
-                            <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-brand-600/80"></div>
-                            <h4 class="text-sm md:text-base font-semibold text-brand-900">Ongoing Concert Series</h4>
-                            <ul class="text-xs md:text-sm text-brand-800 mt-1 space-y-1">
-                                <li>• Regular thematic concerts (seasonal, cultural, and crossover projects).</li>
-                                <li>• Used as inspiration for designing rehearsal-support tools in my research.</li>
+                            <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-brand-500/80"></div>
+                            <h4 class="text-sm md:text-base font-semibold text-accent-400">Ongoing Concert Series</h4>
+                            <ul class="text-xs md:text-sm text-brand-200 mt-1 space-y-1">
+                                <li>• Regular thematic concerts (seasonal, cultural, crossover).</li>
+                                <li>• Source of real-world rehearsal issues my research tries to solve.</li>
                             </ul>
                         </div>
                     </div>
@@ -372,38 +337,32 @@
         </div>
     </section>
 
-    <!-- FEATURED INDIVIDUAL WORKS -->
-    <section id="compositions" class="py-16">
+    <!-- INDIVIDUAL WORKS -->
+    <section id="compositions" class="py-16 border-t border-brand-800 bg-[#181410]">
         <div class="max-w-5xl mx-auto px-6">
-            <div class="flex items-baseline justify-between mb-10 border-b border-brand-500/70 pb-4">
-                <h2 class="text-2xl md:text-3xl font-semibold text-brand-900">Individual Works</h2>
-                <span class="text-xs font-mono text-brand-700">Composition &amp; Production</span>
+            <div class="flex items-baseline justify-between mb-10 border-b border-brand-700 pb-4">
+                <h2 class="text-2xl md:text-3xl font-semibold text-accent-400">Individual Works</h2>
+                <span class="text-xs font-mono text-brand-300">Composition &amp; Production</span>
             </div>
 
             <div class="space-y-20">
                 
-                <!-- Work 1: NTHU Graduation Song -->
+                <!-- NTHU Graduation Song -->
                 <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
-                    <div class="md:col-span-4 text-left order-2 md:order-1">
-                        <h3 class="text-xl md:text-2xl font-semibold text-brand-900 mb-1">NTHU Graduation Song</h3>
-                        <p class="text-xs font-mono text-brand-700 mb-4">Full Band Production • 2024</p>
+                    <div class="md:col-span-4 order-2 md:order-1">
+                        <h3 class="text-xl md:text-2xl font-semibold text-accent-400 mb-1">NTHU Graduation Song</h3>
+                        <p class="text-[11px] font-mono text-brand-300 mb-4">Full Band Production • 2024</p>
                         
                         <div class="flex flex-wrap gap-2 mb-4">
-                             <span class="px-2 py-1 bg-brand-300/70 border border-brand-500 text-[10px] uppercase tracking-wide text-brand-800 rounded">
-                                Composer
-                             </span>
-                             <span class="px-2 py-1 bg-brand-300/70 border border-brand-500 text-[10px] uppercase tracking-wide text-brand-800 rounded">
-                                Producer
-                             </span>
-                             <span class="px-2 py-1 bg-brand-300/70 border border-brand-500 text-[10px] uppercase tracking-wide text-brand-800 rounded">
-                                Vocalist
-                             </span>
+                            <span class="px-2 py-1 bg-[#1f1a15] border border-brand-700 text-[10px] uppercase tracking-wide text-brand-200 rounded">Composer</span>
+                            <span class="px-2 py-1 bg-[#1f1a15] border border-brand-700 text-[10px] uppercase tracking-wide text-brand-200 rounded">Producer</span>
+                            <span class="px-2 py-1 bg-[#1f1a15] border border-brand-700 text-[10px] uppercase tracking-wide text-brand-200 rounded">Vocalist</span>
                         </div>
 
-                        <ul class="text-sm text-brand-800 space-y-2">
+                        <ul class="text-sm text-brand-200 space-y-2">
                             <li>• Led arrangement and full-band production.</li>
                             <li>• Managed band tracking, vocal sessions, and mix direction.</li>
-                            <li>• Designed to support a large-scale graduation ceremony.</li>
+                            <li>• Designed for a large-scale ceremony context.</li>
                         </ul>
                     </div>
 
@@ -420,25 +379,21 @@
                     </div>
                 </div>
 
-                <!-- Work 2: Original Piano Ballad -->
+                <!-- Piano Ballad -->
                 <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
-                    <div class="md:col-span-4 text-left order-2 md:order-1">
-                        <h3 class="text-xl md:text-2xl font-semibold text-brand-900 mb-1">Original Piano Ballad</h3>
-                        <p class="text-xs font-mono text-brand-700 mb-4">Vocals &amp; Piano • Live Recording</p>
+                    <div class="md:col-span-4 order-2 md:order-1">
+                        <h3 class="text-xl md:text-2xl font-semibold text-accent-400 mb-1">Original Piano Ballad</h3>
+                        <p class="text-[11px] font-mono text-brand-300 mb-4">Vocals &amp; Piano • Live Recording</p>
                         
                         <div class="flex flex-wrap gap-2 mb-4">
-                             <span class="px-2 py-1 bg-brand-300/70 border border-brand-500 text-[10px] uppercase tracking-wide text-brand-800 rounded">
-                                Lyrics
-                             </span>
-                             <span class="px-2 py-1 bg-brand-300/70 border border-brand-500 text-[10px] uppercase tracking-wide text-brand-800 rounded">
-                                Composition
-                             </span>
+                            <span class="px-2 py-1 bg-[#1f1a15] border border-brand-700 text-[10px] uppercase tracking-wide text-brand-200 rounded">Lyrics</span>
+                            <span class="px-2 py-1 bg-[#1f1a15] border border-brand-700 text-[10px] uppercase tracking-wide text-brand-200 rounded">Composition</span>
                         </div>
 
-                        <ul class="text-sm text-brand-800 space-y-2">
-                            <li>• Piano-vocal song focused on storytelling and phrasing.</li>
+                        <ul class="text-sm text-brand-200 space-y-2">
+                            <li>• Piano–vocal song focused on storytelling and phrasing.</li>
                             <li>• Self-recorded and mixed as a small studio project.</li>
-                            <li>• Connects directly to my interests in expressive timing.</li>
+                            <li>• Connects directly to my interest in expressive timing and dynamics.</li>
                         </ul>
                     </div>
 
@@ -459,11 +414,12 @@
         </div>
     </section>
 
-    <footer class="py-10 border-t border-brand-500/70 text-center">
-        <a href="index.html" class="text-sm font-mono text-brand-700 hover:text-brand-900 transition mb-3 block">
+    <!-- FOOTER -->
+    <footer class="py-10 border-t border-brand-800 bg-[#181410] text-center">
+        <a href="index.html" class="text-sm font-mono text-brand-300 hover:text-accent-400 transition mb-3 block">
             &larr; Return to Research Portfolio
         </a>
-        <div class="text-xs text-brand-700">
+        <div class="text-xs text-brand-400">
             &copy; 2024 Ting-Yu Pan • Artistic Profile
         </div>
     </footer>
@@ -471,7 +427,7 @@
     <script>
         lucide.createIcons();
 
-        // Mobile menu toggle
+        // Mobile nav
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         if (menuBtn && mobileMenu) {
@@ -480,7 +436,7 @@
             });
         }
 
-        // Wave canvas (same logic style as index.html)
+        // Wave canvas (similar to index, tuned for dark background)
         const canvas = document.getElementById('waveCanvas');
         if (canvas) {
             const ctx = canvas.getContext('2d');
@@ -488,7 +444,7 @@
 
             function resize() {
                 width = canvas.width = window.innerWidth;
-                height = canvas.height = window.innerHeight * 0.6; // focus near hero
+                height = canvas.height = window.innerHeight * 0.7;
             }
             window.addEventListener('resize', resize);
             resize();
@@ -496,37 +452,39 @@
             function draw() {
                 ctx.clearRect(0, 0, width, height);
                 ctx.lineWidth = 2;
-                
+
                 const colors = [
-                    'rgba(113, 121, 153, 0.35)', // brand-700
-                    'rgba(73, 78, 101, 0.22)'    // brand-900
+                    'rgba(229, 223, 214, 0.25)', // light beige
+                    'rgba(139, 116, 96, 0.18)'   // warm accent
                 ];
-                
-                for(let i = 0; i < 2; i++) {
+
+                for (let i = 0; i < 2; i++) {
                     ctx.beginPath();
                     ctx.strokeStyle = colors[i];
-                    for(let x = 0; x < width; x++) {
-                        const y = height/2 + 
-                                Math.sin(x * 0.01 + time * 0.02 + i) * 40 +
-                                Math.sin(x * 0.02 + time * 0.015 - i) * 20;
-                        if(x === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+                    for (let x = 0; x < width; x++) {
+                        const y = height / 2 +
+                                  Math.sin(x * 0.010 + time * 0.020 + i) * 42 +
+                                  Math.sin(x * 0.022 + time * 0.013 - i) * 22;
+                        if (x === 0) ctx.moveTo(x, y);
+                        else ctx.lineTo(x, y);
                     }
                     ctx.stroke();
                 }
+
                 time += 1;
                 requestAnimationFrame(draw);
             }
             draw();
         }
 
-        // History toggle
+        // Timeline toggle
         const toggleHistoryBtn = document.getElementById('toggle-history');
         const fullHistory = document.getElementById('full-history');
         if (toggleHistoryBtn && fullHistory) {
             toggleHistoryBtn.addEventListener('click', () => {
-                const isHidden = fullHistory.classList.contains('hidden');
+                const hidden = fullHistory.classList.contains('hidden');
                 fullHistory.classList.toggle('hidden');
-                toggleHistoryBtn.textContent = isHidden ? 'Hide full history' : 'Show full history';
+                toggleHistoryBtn.textContent = hidden ? 'Hide full history' : 'Show full history';
             });
         }
     </script>
