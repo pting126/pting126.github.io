@@ -302,48 +302,86 @@
                 </div>
             </div>
 
-            <!-- 3. TIMELINE (History & Awards) -->
+             <!-- 3. TIMELINE (History & Awards) - EXPANDABLE -->
             <div class="border-t border-brand-700 pt-10">
-                <h3 class="text-xl font-bold text-white mb-8">Ensemble History</h3>
+                <div class="flex justify-between items-center mb-8">
+                    <h3 class="text-xl font-bold text-white">Ensemble History</h3>
+                    <button id="toggle-history" class="group flex items-center gap-2 text-brand-400 hover:text-white transition text-sm font-medium">
+                        <span class="p-1 bg-brand-800 rounded group-hover:bg-brand-700 transition"><i data-lucide="chevron-down" class="w-4 h-4"></i></span> 
+                        <span>Show Full Timeline (2010-2022)</span>
+                    </button>
+                </div>
                 
-                <div class="relative border-l-2 border-brand-600 ml-4 space-y-12">
+                <div class="relative border-l-2 border-brand-600 ml-4 space-y-10">
                     
-                    <!-- 2024 -->
+                    <!-- RECENT ITEMS (Always Visible) -->
+                    <!-- 2023-2024 -->
                     <div class="relative pl-8 group">
-                        <span class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-brand-400 border-2 border-brand-800 group-hover:scale-125 transition"></span>
-                        <span class="text-xs font-mono text-brand-400 mb-1 block">2024</span>
-                        <h4 class="text-lg font-bold text-white">National TV Feature</h4>
-                        <p class="text-sm text-brand-300 mt-1">Guest performer on [TV Show Name], presenting a 15-minute medley of original arrangements.</p>
+                        <span class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-accent-gold border-2 border-brand-800 shadow-lg shadow-accent-gold/20"></span>
+                        <span class="text-xs font-mono text-brand-300 mb-1 block">2023–Present</span>
+                        <h4 class="text-lg font-bold text-white">National Media & Creative Focus</h4>
+                        <ul class="text-sm text-brand-300 mt-2 space-y-1 list-disc pl-4">
+                            <li><strong>"Blossom" Tour:</strong> Completed island-wide tour "Journey to the Next Station".</li>
+                            <li><strong>TV Features:</strong> Guest performances on FTV "Strongest Variety Show" and SET "Super Night Club" (Taiwan).</li>
+                            <li><strong>Hakka Pop Music Awards:</strong> Finalist & Award Winner for original arrangements.</li>
+                        </ul>
                     </div>
 
-                    <!-- 2023 -->
-                    <div class="relative pl-8 group">
-                        <span class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-brand-600 border-2 border-brand-800 group-hover:bg-brand-400 transition"></span>
-                        <span class="text-xs font-mono text-brand-400 mb-1 block">2023</span>
-                        <h4 class="text-lg font-bold text-white">Hakka Pop Music Awards</h4>
-                        <p class="text-sm text-brand-300 mt-1">Winner of Best Vocal Arrangement for "Taiya Ancient Wisdom".</p>
-                    </div>
+                    <!-- HIDDEN SECTION -->
+                    <div id="full-history" class="hidden space-y-10 pt-2">
+                        
+                        <!-- 2020-2022 -->
+                        <div class="relative pl-8 group">
+                            <span class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-brand-400 border-2 border-brand-800 group-hover:bg-accent-gold transition"></span>
+                            <span class="text-xs font-mono text-brand-400 mb-1 block">2020–2022</span>
+                            <h4 class="text-lg font-bold text-brand-200">Original Music Era</h4>
+                            <ul class="text-sm text-brand-300 mt-2 space-y-1 list-disc pl-4">
+                                <li>Shifted focus from covers to original compositions.</li>
+                                <li><strong>Dongfeng Music Festival:</strong> Award winner for original composition.</li>
+                                <li><strong>"Taiya Ancient Wisdom":</strong> Launched cross-cultural Indigenous/Hakka project.</li>
+                            </ul>
+                        </div>
 
-                    <!-- 2019 -->
-                    <div class="relative pl-8 group">
-                        <span class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-brand-600 border-2 border-brand-800 group-hover:bg-brand-400 transition"></span>
-                        <span class="text-xs font-mono text-brand-400 mb-1 block">2019-2022</span>
-                        <h4 class="text-lg font-bold text-white">Educational Outreach</h4>
-                        <p class="text-sm text-brand-300 mt-1">Founded the "Project K" youth training program; mentored 5 student groups.</p>
-                    </div>
+                        <!-- 2015-2019 -->
+                        <div class="relative pl-8 group">
+                            <span class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-brand-500 border-2 border-brand-800 group-hover:bg-accent-gold transition"></span>
+                            <span class="text-xs font-mono text-brand-400 mb-1 block">2015–2019</span>
+                            <h4 class="text-lg font-bold text-brand-200">International Competitions</h4>
+                            <ul class="text-sm text-brand-300 mt-2 space-y-1 list-disc pl-4">
+                                <li><strong>Champions:</strong> Won A Cappella competitions in Taiwan, Korea, and Hong Kong.</li>
+                                <li><strong>Island Tour Record:</strong> Completed 26 performances in 8 days around Taiwan.</li>
+                                <li><strong>Collaboration:</strong> Performed with artists VOX, Long Qianyu, and Li Yasha.</li>
+                            </ul>
+                        </div>
 
-                    <!-- 2015 -->
-                    <div class="relative pl-8 group">
-                        <span class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-brand-600 border-2 border-brand-800 group-hover:bg-brand-400 transition"></span>
-                        <span class="text-xs font-mono text-brand-400 mb-1 block">2015</span>
-                        <h4 class="text-lg font-bold text-white">International Competition</h4>
-                        <p class="text-sm text-brand-300 mt-1">Represented Taiwan in [Competition Name]; Silver Medalist.</p>
-                    </div>
+                        <!-- 2014 -->
+                        <div class="relative pl-8 group">
+                            <span class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-brand-600 border-2 border-brand-800 group-hover:bg-accent-gold transition"></span>
+                            <span class="text-xs font-mono text-brand-400 mb-1 block">2014</span>
+                            <h4 class="text-lg font-bold text-brand-200">Educational Founding</h4>
+                            <ul class="text-sm text-brand-300 mt-2 space-y-1 list-disc pl-4">
+                                <li><strong>HCAC Founded:</strong> Co-founded Hsinchu Contemporary A Cappella Center.</li>
+                                <li><strong>Project K:</strong> Launched youth vocal band training program to cultivate local talent.</li>
+                                <li><strong>Vocal Arts Festival:</strong> Organized "Complete Vocal Arts Festival" workshops.</li>
+                            </ul>
+                        </div>
 
+                        <!-- 2010 -->
+                        <div class="relative pl-8 group">
+                            <span class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-brand-700 border-2 border-brand-800"></span>
+                            <span class="text-xs font-mono text-brand-500 mb-1 block">2010–Present</span>
+                            <h4 class="text-lg font-bold text-brand-200">500+ Performances</h4>
+                            <p class="text-sm text-brand-300 mt-1">
+                                Over a decade of continuous performance at government events, corporate functions (TSMC, UMC), and music festivals across the Taoyuan-Hsinchu-Miaoli region.
+                            </p>
+                        </div>
+                    </div>
+                    
                 </div>
             </div>
 
         </div>
+    </section>
     </section>
 
     <!-- SECTION DIVIDER -->
