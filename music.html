@@ -47,20 +47,55 @@
         ::-webkit-scrollbar-thumb:hover { background: #717999; } /* brand-700 */
         
         .glass-nav {
-            background: rgba(220, 222, 230, 0.85); /* brand-300 w/ alpha */
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(73, 78, 101, 0.2); /* brand-900 */
+            background: rgba(244, 245, 248, 0.9);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(73, 78, 101, 0.18); /* brand-900 */
         }
-        
+
+        /* Gradient blobs for subtle animated background */
+        .gradient-orb {
+            position: absolute;
+            border-radius: 9999px;
+            filter: blur(50px);
+            opacity: 0.55;
+            pointer-events: none;
+            mix-blend-mode: multiply;
+        }
+        .orb-1 {
+            width: 380px;
+            height: 380px;
+            background: radial-gradient(circle at 30% 30%, #DCDEE6, #A7ABBF, #717999);
+            top: -60px;
+            left: -80px;
+            animation: float1 22s ease-in-out infinite alternate;
+        }
+        .orb-2 {
+            width: 420px;
+            height: 420px;
+            background: radial-gradient(circle at 70% 70%, #C1C5D2, #5C6380, #494E65);
+            bottom: -120px;
+            right: -60px;
+            animation: float2 26s ease-in-out infinite alternate;
+        }
+
+        @keyframes float1 {
+            0%   { transform: translate3d(0, 0, 0) scale(1); }
+            100% { transform: translate3d(30px, 40px, 0) scale(1.05); }
+        }
+        @keyframes float2 {
+            0%   { transform: translate3d(0, 0, 0) scale(1.05); }
+            100% { transform: translate3d(-40px, -30px, 0) scale(0.97); }
+        }
+
         /* Video Container for 16:9 Aspect Ratio */
         .video-container {
             position: relative;
             padding-bottom: 56.25%; /* 16:9 */
             height: 0;
             overflow: hidden;
-            border-radius: 0.75rem;
+            border-radius: 0.9rem;
             border: 1px solid #A7ABBF; /* brand-500 */
-            background: #C1C5D2;       /* subtle placeholder bg */
+            background: linear-gradient(135deg, #DCDEE6 0%, #C1C5D2 40%, #A7ABBF 100%);
         }
         .video-container iframe {
             position: absolute;
@@ -69,9 +104,24 @@
             width: 100%;
             height: 100%;
         }
+
+        /* Slight hover lift for cards */
+        .hover-card {
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+        }
+        .hover-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 18px 40px rgba(73, 78, 101, 0.28);
+            border-color: #717999; /* brand-700 */
+            background: rgba(220, 222, 230, 0.95);
+        }
     </style>
 </head>
-<body class="bg-gradient-to-b from-brand-300 to-brand-400 text-brand-900 font-sans antialiased">
+<body class="relative min-h-screen bg-gradient-to-b from-brand-300 via-brand-400 to-brand-500 text-brand-900 font-sans antialiased overflow-x-hidden">
+
+    <!-- Gradient orbs -->
+    <div class="gradient-orb orb-1"></div>
+    <div class="gradient-orb orb-2"></div>
 
     <!-- Navigation -->
     <nav class="fixed w-full z-50 top-0 glass-nav">
@@ -86,27 +136,29 @@
             </div>
 
             <div class="hidden md:flex gap-8 text-sm font-medium text-brand-700">
-                <a href="#compositions" class="hover:text-brand-900 transition">Compositions</a>
                 <a href="#acappella" class="hover:text-brand-900 transition">Seagull K</a>
+                <a href="#compositions" class="hover:text-brand-900 transition">Compositions</a>
                 <a href="#performances" class="hover:text-brand-900 transition">History</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero: your portrait + intro -->
-    <section class="pt-32 pb-16 px-6">
+    <section class="pt-32 pb-16 px-6 relative">
         <div class="max-w-5xl mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-[auto,1fr] gap-10 items-center">
+            <div class="grid grid-cols-1 md:grid-cols-[auto,1.4fr] gap-10 items-center bg-brand-300/60 border border-brand-500/80 rounded-3xl px-8 py-10 shadow-lg shadow-brand-700/25 backdrop-blur-lg">
                 
                 <!-- Your photo -->
                 <div class="flex justify-center md:justify-start">
-                    <!-- TODO: replace src with your real portrait path -->
-                    <div class="w-40 h-40 md:w-48 md:h-48 rounded-2xl overflow-hidden shadow-lg shadow-brand-700/40 border border-brand-500 bg-brand-500/40">
-                        <img 
-                            src="assets/TYP_music.jpg" 
-                            alt="Portrait of Ting-Yu Pan" 
-                            class="w-full h-full object-cover"
-                        >
+                    <div class="relative">
+                        <div class="absolute -inset-1 rounded-2xl bg-gradient-to-tr from-brand-500 via-brand-700 to-brand-300 opacity-70 blur-md"></div>
+                        <div class="relative w-40 h-40 md:w-48 md:h-48 rounded-2xl overflow-hidden border border-brand-500 bg-brand-500/40">
+                            <img 
+                                src="TYP_music.jpg" 
+                                alt="Portrait of Ting-Yu Pan" 
+                                class="w-full h-full object-cover"
+                            >
+                        </div>
                     </div>
                 </div>
 
@@ -119,18 +171,126 @@
                         Sound, Space, &amp; Structure
                     </h1>
                     <p class="text-base md:text-lg text-brand-700 max-w-xl md:max-w-2xl md:pr-6 leading-relaxed">
-                        Original compositions, production work, and a cappella performances that connect
-                        musical storytelling with my research in signal processing and AI for music.
+                        Original compositions and a decade of professional a cappella performance that directly inform my research in 
+                        signal processing and AI-assisted tools for singers.
                     </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FEATURED INDIVIDUAL WORKS -->
+    <!-- SEAGULL K SECTION (FIRST MAIN SECTION) -->
+    <section id="acappella" class="py-16 bg-brand-300/70 border-y border-brand-500/70 relative">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8 border-b border-brand-500/70 pb-4">
+                <div class="flex flex-col gap-2">
+                    <h2 class="text-2xl md:text-3xl font-semibold text-brand-900">Vocal Research: Seagull K</h2>
+                    <p class="text-sm text-brand-700">
+                        Professional a cappella work that motivates my datasets, separation models, and rehearsal tools.
+                    </p>
+                </div>
+                <a href="https://allmy.bio/seagullk.tw" target="_blank" class="text-xs font-mono text-brand-700 hover:text-brand-900 transition">
+                    View Official Profile &rarr;
+                </a>
+            </div>
+
+            <!-- Group photo + context -->
+            <div class="grid grid-cols-1 md:grid-cols-[1.1fr,1.3fr] gap-10 mb-12">
+                
+                <!-- Group photo -->
+                <div class="hover-card bg-brand-300/80 rounded-3xl border border-brand-500/80 p-2">
+                    <!-- TODO: replace src with your Seagull K group photo path -->
+                    <div class="rounded-2xl overflow-hidden bg-brand-400/50">
+                        <img 
+                            src="seagullk_group.jpg" 
+                            alt="Seagull K a cappella group" 
+                            class="w-full h-full object-cover"
+                        >
+                    </div>
+                </div>
+
+                <!-- Text blurb -->
+                <div class="bg-brand-300/80 rounded-3xl border border-brand-500/80 p-6 hover-card">
+                    <h4 class="text-xs font-mono uppercase tracking-[0.2em] text-brand-700 mb-2">
+                        Context &amp; Community Impact
+                    </h4>
+                    <p class="text-sm text-brand-800 leading-relaxed mb-3">
+                        As a long-time member of <span class="font-semibold text-brand-900">Seagull K</span>, I have performed in more than 100 concerts and festivals across Taiwan and abroad.
+                        Our repertoire spans Mandarin, Hakka, Taiwanese, and Indigenous languages, with arrangements that emphasize blend, groove, and storytelling.
+                    </p>
+                    <p class="text-sm text-brand-800 leading-relaxed mb-3">
+                        These ensemble experiences shaped how I think about dataset design (e.g., ACappellaSet), source separation for SATB voices,
+                        and rehearsal tools that visualize timing, tuning, and dynamics in meaningful ways.
+                    </p>
+                    <p class="text-sm text-brand-800 leading-relaxed">
+                        <span class="font-semibold text-brand-900">Outreach:</span> co-founding HCAC (Hsinchu Contemporary A Cappella Center) and mentoring youth ensembles through
+                        programs such as "Project K," connecting community work with research on accessible AI tools.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Cards: reel + cultural project -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <!-- Item 1: Performance Highlights Reel -->
+                <div class="group bg-brand-300/80 rounded-3xl overflow-hidden border border-brand-500 hover-card flex flex-col">
+                    <div class="video-container bg-brand-400/60">
+                        <!-- Placeholder: you can replace with your highlight reel iframe -->
+                        <div class="absolute inset-0 flex items-center justify-center text-center p-4">
+                            <span class="text-xs font-mono text-brand-700">
+                                [Optional] Embed a 2–3 minute performance reel here.<br>
+                                &lt;iframe src="YOUR_REEL_URL" ...&gt;
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="p-6 flex-1 flex flex-col">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-lg font-semibold text-brand-900">Performance Highlights</h3>
+                            <span class="text-xs font-mono text-brand-700">Showreel</span>
+                        </div>
+                        <p class="text-sm text-brand-800 mb-2">
+                            A curated selection of my performances with Seagull K, including competition solos and television appearances,
+                            highlighting both ensemble blend and featured lead lines.
+                        </p>
+                        <p class="text-sm text-brand-800">
+                            This reel is designed to give committees a quick sense of my stage presence, musicality, and stylistic range.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Item 2: Cultural Project -->
+                <div class="group bg-brand-300/80 rounded-3xl overflow-hidden border border-brand-500 hover-card flex flex-col">
+                    <div class="h-44 bg-gradient-to-br from-brand-500 via-brand-700 to-brand-900 flex items-center justify-center">
+                        <i data-lucide="globe-2" class="w-12 h-12 text-brand-300 group-hover:scale-105 transition-transform duration-300"></i>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-lg font-semibold text-brand-900">"Taiya Ancient Wisdom"</h3>
+                            <span class="text-xs font-mono text-brand-700">Cross-Cultural</span>
+                        </div>
+                        
+                        <p class="text-sm text-brand-800 mb-4 flex-1">
+                            A collaborative project blending Indigenous Tayal melodic material with contemporary a cappella textures. The arrangements
+                            respect traditional contours while exploring modern harmony and vocal production.
+                        </p>
+                        
+                        <div class="flex gap-3 mt-auto">
+                            <a href="https://streetvoice.com/seagullk/songs/" target="_blank" class="flex-1 py-2 text-center border border-brand-600 rounded-lg hover:bg-brand-500/40 hover:text-brand-900 text-xs font-mono uppercase tracking-wider transition flex items-center justify-center gap-2">
+                                <i data-lucide="music-2" class="w-3 h-3"></i> Listen on StreetVoice
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURED INDIVIDUAL WORKS (NOW SECOND) -->
     <section id="compositions" class="py-16">
         <div class="max-w-5xl mx-auto px-6">
-            <div class="flex items-baseline justify-between mb-10 border-b border-brand-500/60 pb-4">
+            <div class="flex items-baseline justify-between mb-10 border-b border-brand-500/70 pb-4">
                 <h2 class="text-2xl md:text-3xl font-semibold text-brand-900">Individual Works</h2>
                 <span class="text-xs font-mono text-brand-700">Composition &amp; Production</span>
             </div>
@@ -157,11 +317,12 @@
 
                         <div class="space-y-3 text-sm text-brand-800 leading-relaxed">
                             <p>
-                                As the main arranger and producer, I led the production of the 2024 National Tsing Hua University graduation anthem, coordinating band recording,
-                                vocal sessions, and overall sonic direction.
+                                As the main arranger and producer, I led the 2024 National Tsing Hua University graduation anthem, coordinating
+                                band tracking, vocal sessions, and the overall sonic direction for the event.
                             </p> 
                             <p>
-                                The project demonstrates my ability to manage large-scale sessions, blend live instruments with layered vocals, and deliver a cohesive emotional arc.
+                                The project showcases my ability to manage large recording sessions, blend live instruments with layered vocals, and build
+                                an emotional arc that matches a milestone graduation ceremony.
                             </p>
                         </div>
                     </div>
@@ -196,10 +357,12 @@
 
                         <div class="space-y-3 text-sm text-brand-800 leading-relaxed">
                             <p>
-                                A focused exploration of songwriting form, narrative pacing, and intimate vocal delivery. All piano performance and recording engineering were done by me.
+                                A piano-vocal ballad that focuses on lyric-driven storytelling and intimate performance. All instrumentation,
+                                recording, and rough mixing were done by me.
                             </p>
                             <p>
-                                This piece connects my artistic practice with my technical interests in acoustic recording, mixing, and emotionally transparent sound design.
+                                This piece connects my interests in songwriting, acoustic recording, and expressive timing—skills that also motivate my
+                                research on performance-aware music and rehearsal tools.
                             </p>
                         </div>
                     </div>
@@ -213,115 +376,6 @@
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                                 allowfullscreen>
                             </iframe>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- SEAGULL K SECTION -->
-    <section id="acappella" class="py-16 bg-brand-300/60 border-y border-brand-500/70">
-        <div class="max-w-5xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8 border-b border-brand-500/70 pb-4">
-                <div class="flex flex-col gap-2">
-                    <h2 class="text-2xl md:text-3xl font-semibold text-brand-900">Vocal Research: Seagull K</h2>
-                    <p class="text-sm text-brand-700">
-                        Professional a cappella ensemble work that inspires my research in AI-assisted rehearsal and source separation.
-                    </p>
-                </div>
-                <a href="https://allmy.bio/seagullk.tw" target="_blank" class="text-xs font-mono text-brand-700 hover:text-brand-900 transition">
-                    View Official Profile &rarr;
-                </a>
-            </div>
-
-            <!-- Group photo + context -->
-            <div class="grid grid-cols-1 md:grid-cols-[1.1fr,1.3fr] gap-10 mb-12">
-                
-                <!-- Group photo -->
-                <div>
-                    <!-- TODO: replace src with your Seagull K group photo path -->
-                    <div class="rounded-2xl overflow-hidden shadow-lg shadow-brand-700/40 border border-brand-500 bg-brand-500/30">
-                        <img 
-                            src="assets/seagullk_group.jpg" 
-                            alt="Seagull K a cappella group" 
-                            class="w-full h-full object-cover"
-                        >
-                    </div>
-                </div>
-
-                <!-- Text blurb -->
-                <div class="bg-brand-300/60 rounded-2xl border border-brand-500/70 p-6">
-                    <h4 class="text-xs font-mono uppercase tracking-[0.2em] text-brand-700 mb-2">
-                        Context &amp; Community Impact
-                    </h4>
-                    <p class="text-sm text-brand-800 leading-relaxed mb-3">
-                        As a core member of <span class="font-semibold text-brand-900">Seagull K</span> for over a decade, I have performed in
-                        more than 100 concerts and festivals across Taiwan and abroad. Our repertoire spans Mandarin, Hakka, Taiwanese,
-                        and Indigenous languages, emphasizing cultural storytelling and vocal blend.
-                    </p>
-                    <p class="text-sm text-brand-800 leading-relaxed mb-3">
-                        These experiences directly inform my research on AI tools that respect vocal nuance, phrasing, and the realities of
-                        ensemble rehearsal, especially in small-group contemporary a cappella settings.
-                    </p>
-                    <p class="text-sm text-brand-800 leading-relaxed">
-                        <span class="font-semibold text-brand-900">Key outreach:</span> co-founding HCAC (Hsinchu Contemporary A Cappella Center)
-                        and mentoring youth ensembles through "Project K" and other educational initiatives.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Cards below: reel + project -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                
-                <!-- Item 1: Performance Highlights Reel -->
-                <div class="group bg-brand-300/70 rounded-2xl overflow-hidden border border-brand-500 hover:border-brand-700 transition flex flex-col">
-                    <div class="video-container bg-brand-400/60">
-                        <!-- Placeholder: you can replace with your highlight reel iframe -->
-                        <div class="absolute inset-0 flex items-center justify-center text-center p-4">
-                            <span class="text-xs font-mono text-brand-700">
-                                [Optional] Embed a 2–3 minute highlight reel here.<br>
-                                &lt;iframe src="YOUR_REEL_URL" ...&gt;
-                            </span>
-                        </div>
-                    </div>
-                    
-                    <div class="p-6 flex-1 flex flex-col">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="text-lg font-semibold text-brand-900">Performance Highlights</h3>
-                            <span class="text-xs font-mono text-brand-700">Showreel</span>
-                        </div>
-                        <p class="text-sm text-brand-800 mb-2">
-                            A curated selection of my featured performances with Seagull K, including television appearances, competition
-                            solos, and festival stages.
-                        </p>
-                        <p class="text-sm text-brand-800">
-                            These clips showcase not only vocal performance but also stage communication, arrangement choices, and ensemble dynamics.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Item 2: Cultural Project -->
-                <div class="group bg-brand-300/70 rounded-2xl overflow-hidden border border-brand-500 hover:border-brand-700 transition flex flex-col">
-                    <div class="h-44 bg-gradient-to-br from-brand-500 to-brand-700 flex items-center justify-center">
-                        <i data-lucide="globe-2" class="w-12 h-12 text-brand-300 group-hover:scale-105 transition-transform duration-300"></i>
-                    </div>
-                    <div class="p-6 flex-1 flex flex-col">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="text-lg font-semibold text-brand-900">"Taiya Ancient Wisdom"</h3>
-                            <span class="text-xs font-mono text-brand-700">Cross-Cultural</span>
-                        </div>
-                        
-                        <p class="text-sm text-brand-800 mb-4 flex-1">
-                            A collaborative project blending Indigenous Tayal chants with Hakka-influenced harmony writing. The arrangement
-                            balances respect for traditional melodic contours with contemporary a cappella textures.
-                        </p>
-                        
-                        <div class="flex gap-3 mt-auto">
-                            <a href="https://streetvoice.com/seagullk/songs/" target="_blank" class="flex-1 py-2 text-center border border-brand-600 rounded-lg hover:bg-brand-500/40 hover:text-brand-900 text-xs font-mono uppercase tracking-wider transition flex items-center justify-center gap-2">
-                                <i data-lucide="music-2" class="w-3 h-3"></i> Listen on StreetVoice
-                            </a>
                         </div>
                     </div>
                 </div>
