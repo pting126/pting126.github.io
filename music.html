@@ -5,9 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ting-Yu Pan | Artistic Profile</title>
     
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <!-- Fonts: SAME AS index.html -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 
     <script>
         tailwind.config = {
@@ -15,7 +18,7 @@
                 extend: {
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
-                        serif: ['Playfair Display', 'serif'], 
+                        mono: ['JetBrains Mono', 'monospace'],
                     },
                     colors: {
                         brand: {
@@ -39,13 +42,14 @@
 
     <style>
         ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: #494E65; } /* brand-900 */
-        ::-webkit-scrollbar-thumb { background: #717999; border-radius: 3px; } /* brand-700 */
+        ::-webkit-scrollbar-track { background: #DCDEE6; }  /* brand-300 */
+        ::-webkit-scrollbar-thumb { background: #8C92AC; border-radius: 3px; } /* brand-600 */
+        ::-webkit-scrollbar-thumb:hover { background: #717999; } /* brand-700 */
         
         .glass-nav {
-            background: rgba(73, 78, 101, 0.85); /* brand-900 w/ alpha */
-            backdrop-filter: blur(8px);
-            border-bottom: 1px solid rgba(220, 222, 230, 0.2); /* brand-300 */
+            background: rgba(220, 222, 230, 0.85); /* brand-300 w/ alpha */
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(73, 78, 101, 0.2); /* brand-900 */
         }
         
         /* Video Container for 16:9 Aspect Ratio */
@@ -54,8 +58,9 @@
             padding-bottom: 56.25%; /* 16:9 */
             height: 0;
             overflow: hidden;
-            border-radius: 0.5rem;
-            border: 1px solid #8C92AC; /* brand-600 */
+            border-radius: 0.75rem;
+            border: 1px solid #A7ABBF; /* brand-500 */
+            background: #C1C5D2;       /* subtle placeholder bg */
         }
         .video-container iframe {
             position: absolute;
@@ -66,97 +71,148 @@
         }
     </style>
 </head>
-<body class="bg-brand-900 text-brand-300 font-sans antialiased">
+<body class="bg-gradient-to-b from-brand-300 to-brand-400 text-brand-900 font-sans antialiased">
 
     <!-- Navigation -->
     <nav class="fixed w-full z-50 top-0 glass-nav">
         <div class="max-w-5xl mx-auto px-6 h-20 flex items-center justify-between">
-            <a href="index.html" class="group flex items-center gap-2 text-xs font-medium tracking-widest uppercase text-brand-500 hover:text-brand-300 transition">
+            <a href="index.html" class="group flex items-center gap-2 text-xs font-mono tracking-widest uppercase text-brand-700 hover:text-brand-900 transition">
                 <i data-lucide="arrow-left" class="w-4 h-4 group-hover:-translate-x-1 transition"></i>
                 Back to Research
             </a>
             
-            <div class="text-lg font-serif italic text-brand-300">Ting-Yu Pan / Music</div>
+            <div class="text-sm md:text-base font-mono text-brand-900">
+                Ting-Yu Pan / <span class="font-semibold">Music</span>
+            </div>
 
-            <div class="hidden md:flex gap-8 text-sm font-medium text-brand-400">
-                <a href="#compositions" class="hover:text-accent-400 transition">Compositions</a>
-                <a href="#acappella" class="hover:text-accent-400 transition">Seagull K</a>
-                <a href="#performances" class="hover:text-accent-400 transition">History</a>
+            <div class="hidden md:flex gap-8 text-sm font-medium text-brand-700">
+                <a href="#compositions" class="hover:text-brand-900 transition">Compositions</a>
+                <a href="#acappella" class="hover:text-brand-900 transition">Seagull K</a>
+                <a href="#performances" class="hover:text-brand-900 transition">History</a>
             </div>
         </div>
     </nav>
 
-    <!-- Artistic Hero -->
-    <section class="relative pt-40 pb-20 px-6 border-b border-brand-700">
-        <div class="max-w-4xl mx-auto text-center">
-            <p class="text-accent-400 text-sm font-bold tracking-widest uppercase mb-4">Artistic Profile</p>
-            <h1 class="text-5xl md:text-7xl font-serif text-brand-300 mb-8 leading-tight">
-                Sound, Space, <span class="italic text-brand-500">&</span> Structure
-            </h1>
-            <p class="text-xl text-brand-400 max-w-2xl mx-auto font-light leading-relaxed">
-                A collection of original compositions, production work, and vocal ensemble research.
-            </p>
+    <!-- Hero: your portrait + intro -->
+    <section class="pt-32 pb-16 px-6">
+        <div class="max-w-5xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-[auto,1fr] gap-10 items-center">
+                
+                <!-- Your photo -->
+                <div class="flex justify-center md:justify-start">
+                    <!-- TODO: replace src with your real portrait path -->
+                    <div class="w-40 h-40 md:w-48 md:h-48 rounded-2xl overflow-hidden shadow-lg shadow-brand-700/40 border border-brand-500 bg-brand-500/40">
+                        <img 
+                            src="assets/TYP_music.jpg" 
+                            alt="Portrait of Ting-Yu Pan" 
+                            class="w-full h-full object-cover"
+                        >
+                    </div>
+                </div>
+
+                <!-- Text -->
+                <div class="text-center md:text-left">
+                    <p class="text-xs font-mono tracking-[0.25em] uppercase text-brand-700 mb-3">
+                        Artistic Profile
+                    </p>
+                    <h1 class="text-3xl md:text-4xl lg:text-5xl font-semibold text-brand-900 mb-4 leading-tight">
+                        Sound, Space, &amp; Structure
+                    </h1>
+                    <p class="text-base md:text-lg text-brand-700 max-w-xl md:max-w-2xl md:pr-6 leading-relaxed">
+                        Original compositions, production work, and a cappella performances that connect
+                        musical storytelling with my research in signal processing and AI for music.
+                    </p>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- FEATURED INDIVIDUAL WORKS -->
-    <section id="compositions" class="py-20">
+    <section id="compositions" class="py-16">
         <div class="max-w-5xl mx-auto px-6">
-            <div class="flex items-baseline justify-between mb-12 border-b border-brand-700 pb-4">
-                <h2 class="text-3xl font-serif text-brand-300">Individual Works</h2>
-                <span class="text-xs font-mono text-brand-500">Composition & Production</span>
+            <div class="flex items-baseline justify-between mb-10 border-b border-brand-500/60 pb-4">
+                <h2 class="text-2xl md:text-3xl font-semibold text-brand-900">Individual Works</h2>
+                <span class="text-xs font-mono text-brand-700">Composition &amp; Production</span>
             </div>
 
-            <div class="space-y-24">
+            <div class="space-y-20">
                 
-                <!-- Work 1: NTHU Graduation Song (Production Focus) -->
+                <!-- Work 1: NTHU Graduation Song -->
                 <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
-                    <div class="md:col-span-4 text-right md:text-right order-2 md:order-1">
-                        <h3 class="text-2xl font-bold text-brand-300 mb-1">NTHU Graduation Song</h3>
-                        <p class="text-accent-400 font-mono text-xs mb-4">Full Band Production • 2024</p>
+                    <div class="md:col-span-4 text-left order-2 md:order-1">
+                        <h3 class="text-xl md:text-2xl font-semibold text-brand-900 mb-1">NTHU Graduation Song</h3>
+                        <p class="text-xs font-mono text-brand-700 mb-4">Full Band Production • 2024</p>
                         
-                        <div class="flex flex-wrap justify-end gap-2 mb-4">
-                             <span class="px-2 py-1 bg-brand-800 border border-brand-700 text-[10px] uppercase text-brand-400">Composer</span>
-                             <span class="px-2 py-1 bg-brand-800 border border-brand-700 text-[10px] uppercase text-brand-400">Producer</span>
-                             <span class="px-2 py-1 bg-brand-800 border border-brand-700 text-[10px] uppercase text-brand-400">Vocalist</span>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                             <span class="px-2 py-1 bg-brand-300/70 border border-brand-500 text-[10px] uppercase tracking-wide text-brand-800 rounded">
+                                Composer
+                             </span>
+                             <span class="px-2 py-1 bg-brand-300/70 border border-brand-500 text-[10px] uppercase tracking-wide text-brand-800 rounded">
+                                Producer
+                             </span>
+                             <span class="px-2 py-1 bg-brand-300/70 border border-brand-500 text-[10px] uppercase tracking-wide text-brand-800 rounded">
+                                Vocalist
+                             </span>
                         </div>
 
-                        <div class="space-y-4 text-sm text-brand-400 leading-relaxed">
+                        <div class="space-y-3 text-sm text-brand-800 leading-relaxed">
                             <p>
-                                Serving as the main music arranger and producer, I led the production of the 2024 National Tsing Hua University graduation anthem.
+                                As the main arranger and producer, I led the production of the 2024 National Tsing Hua University graduation anthem, coordinating band recording,
+                                vocal sessions, and overall sonic direction.
                             </p> 
                             <p>
-                                This project demonstrates my ability to manage large-scale sessions, including band recording, vocal layering, and mixing.
+                                The project demonstrates my ability to manage large-scale sessions, blend live instruments with layered vocals, and deliver a cohesive emotional arc.
                             </p>
                         </div>
                     </div>
 
                     <div class="md:col-span-8 order-1 md:order-2">
                         <div class="video-container">
-                            <iframe src="https://www.youtube.com/embed/kfuOX3APyEA" title="NTHU Graduation Song" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <iframe 
+                                src="https://www.youtube.com/embed/kfuOX3APyEA" 
+                                title="NTHU Graduation Song" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen>
+                            </iframe>
                         </div>
                     </div>
                 </div>
 
-                <!-- Work 2: English Piano Song (Songwriting Focus) -->
+                <!-- Work 2: Original Piano Ballad -->
                 <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
-                    <div class="md:col-span-4 text-right md:text-right order-2 md:order-1">
-                        <h3 class="text-2xl font-bold text-brand-300 mb-1">Original Piano Ballad</h3>
-                        <p class="text-accent-400 font-mono text-xs mb-4">Vocals & Piano • Live Recording</p>
+                    <div class="md:col-span-4 text-left order-2 md:order-1">
+                        <h3 class="text-xl md:text-2xl font-semibold text-brand-900 mb-1">Original Piano Ballad</h3>
+                        <p class="text-xs font-mono text-brand-700 mb-4">Vocals &amp; Piano • Live Recording</p>
                         
-                         <div class="flex flex-wrap justify-end gap-2 mb-4">
-                             <span class="px-2 py-1 bg-brand-800 border border-brand-700 text-[10px] uppercase text-brand-400">Lyrics</span>
-                             <span class="px-2 py-1 bg-brand-800 border border-brand-700 text-[10px] uppercase text-brand-400">Composition</span>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                             <span class="px-2 py-1 bg-brand-300/70 border border-brand-500 text-[10px] uppercase tracking-wide text-brand-800 rounded">
+                                Lyrics
+                             </span>
+                             <span class="px-2 py-1 bg-brand-300/70 border border-brand-500 text-[10px] uppercase tracking-wide text-brand-800 rounded">
+                                Composition
+                             </span>
                         </div>
 
-                        <div class="space-y-4 text-sm text-brand-400 leading-relaxed">
-                            <p>A focused study on songwriting structure and acoustic recording techniques. All instrumentation and engineering performed by me.</p>
+                        <div class="space-y-3 text-sm text-brand-800 leading-relaxed">
+                            <p>
+                                A focused exploration of songwriting form, narrative pacing, and intimate vocal delivery. All piano performance and recording engineering were done by me.
+                            </p>
+                            <p>
+                                This piece connects my artistic practice with my technical interests in acoustic recording, mixing, and emotionally transparent sound design.
+                            </p>
                         </div>
                     </div>
 
                     <div class="md:col-span-8 order-1 md:order-2">
                         <div class="video-container">
-                            <iframe src="https://www.youtube.com/embed/sQbbPKXvCYs" title="Original Piano Song" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <iframe 
+                                src="https://www.youtube.com/embed/sQbbPKXvCYs" 
+                                title="Original Piano Song" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen>
+                            </iframe>
                         </div>
                     </div>
                 </div>
@@ -166,71 +222,104 @@
     </section>
 
     <!-- SEAGULL K SECTION -->
-    <section id="acappella" class="py-20 bg-brand-800/30 border-y border-brand-700">
+    <section id="acappella" class="py-16 bg-brand-300/60 border-y border-brand-500/70">
         <div class="max-w-5xl mx-auto px-6">
-            <div class="flex items-baseline justify-between mb-8 border-b border-brand-700 pb-4">
-                <div class="flex items-center gap-3">
-                    <h2 class="text-3xl font-serif text-brand-300">Vocal Research: Seagull K</h2>
-                    <span class="px-2 py-1 rounded text-[10px] font-bold uppercase tracking-wider bg-accent-400 text-brand-900">Professional Ensemble</span>
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8 border-b border-brand-500/70 pb-4">
+                <div class="flex flex-col gap-2">
+                    <h2 class="text-2xl md:text-3xl font-semibold text-brand-900">Vocal Research: Seagull K</h2>
+                    <p class="text-sm text-brand-700">
+                        Professional a cappella ensemble work that inspires my research in AI-assisted rehearsal and source separation.
+                    </p>
                 </div>
-                <a href="https://allmy.bio/seagullk.tw" target="_blank" class="text-xs font-mono text-brand-500 hover:text-accent-400 transition">View Official Profile &rarr;</a>
+                <a href="https://allmy.bio/seagullk.tw" target="_blank" class="text-xs font-mono text-brand-700 hover:text-brand-900 transition">
+                    View Official Profile &rarr;
+                </a>
             </div>
 
-            <!-- Research Context Blurb -->
-            <div class="mb-12 bg-brand-800 p-6 rounded-lg border-l-2 border-accent-400">
-                <h4 class="text-accent-400 font-bold mb-2 text-sm uppercase tracking-wide">Context & Community Impact</h4>
-                <p class="text-brand-400 text-sm leading-relaxed mb-3">
-                    As a core member of <strong class="text-brand-300">Seagull K</strong> for over 10 years, I have performed in 100+ concerts and festivals. The group focuses on 
-                    <span class="text-brand-300">cultural storytelling</span> and <span class="text-brand-300">linguistic preservation</span> 
-                    through multilingual repertoire (Mandarin, Hakka, Taiwanese, Indigenous).
-                </p>
-                <p class="text-brand-400 text-sm leading-relaxed">
-                    <strong class="text-brand-300">Key Outreach:</strong> Founded the HCAC (Hsinchu Contemporary A Cappella Center) and "Project K" youth training program to mentor the next generation of vocalists.
-                </p>
+            <!-- Group photo + context -->
+            <div class="grid grid-cols-1 md:grid-cols-[1.1fr,1.3fr] gap-10 mb-12">
+                
+                <!-- Group photo -->
+                <div>
+                    <!-- TODO: replace src with your Seagull K group photo path -->
+                    <div class="rounded-2xl overflow-hidden shadow-lg shadow-brand-700/40 border border-brand-500 bg-brand-500/30">
+                        <img 
+                            src="assets/seagullk_group.jpg" 
+                            alt="Seagull K a cappella group" 
+                            class="w-full h-full object-cover"
+                        >
+                    </div>
+                </div>
+
+                <!-- Text blurb -->
+                <div class="bg-brand-300/60 rounded-2xl border border-brand-500/70 p-6">
+                    <h4 class="text-xs font-mono uppercase tracking-[0.2em] text-brand-700 mb-2">
+                        Context &amp; Community Impact
+                    </h4>
+                    <p class="text-sm text-brand-800 leading-relaxed mb-3">
+                        As a core member of <span class="font-semibold text-brand-900">Seagull K</span> for over a decade, I have performed in
+                        more than 100 concerts and festivals across Taiwan and abroad. Our repertoire spans Mandarin, Hakka, Taiwanese,
+                        and Indigenous languages, emphasizing cultural storytelling and vocal blend.
+                    </p>
+                    <p class="text-sm text-brand-800 leading-relaxed mb-3">
+                        These experiences directly inform my research on AI tools that respect vocal nuance, phrasing, and the realities of
+                        ensemble rehearsal, especially in small-group contemporary a cappella settings.
+                    </p>
+                    <p class="text-sm text-brand-800 leading-relaxed">
+                        <span class="font-semibold text-brand-900">Key outreach:</span> co-founding HCAC (Hsinchu Contemporary A Cappella Center)
+                        and mentoring youth ensembles through "Project K" and other educational initiatives.
+                    </p>
+                </div>
             </div>
 
+            <!-- Cards below: reel + project -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 
-                <!-- Item 1: Highlight Reel -->
-                <div class="group bg-brand-800 rounded-xl overflow-hidden border border-brand-700 hover:border-accent-400/50 transition flex flex-col">
-                    <div class="video-container bg-brand-900">
-                         <div class="absolute inset-0 flex items-center justify-center text-center p-4">
-                            <span class="text-xs text-brand-500">
-                                [Upload your 2-3min Performance Reel to YouTube]<br>
-                                &lt;iframe src="..."&gt;
+                <!-- Item 1: Performance Highlights Reel -->
+                <div class="group bg-brand-300/70 rounded-2xl overflow-hidden border border-brand-500 hover:border-brand-700 transition flex flex-col">
+                    <div class="video-container bg-brand-400/60">
+                        <!-- Placeholder: you can replace with your highlight reel iframe -->
+                        <div class="absolute inset-0 flex items-center justify-center text-center p-4">
+                            <span class="text-xs font-mono text-brand-700">
+                                [Optional] Embed a 2–3 minute highlight reel here.<br>
+                                &lt;iframe src="YOUR_REEL_URL" ...&gt;
                             </span>
-                         </div>
+                        </div>
                     </div>
                     
                     <div class="p-6 flex-1 flex flex-col">
                         <div class="flex justify-between items-start mb-2">
-                            <h3 class="text-lg font-bold text-brand-300">Performance Highlights</h3>
-                            <span class="text-xs font-mono text-brand-500">Showreel</span>
+                            <h3 class="text-lg font-semibold text-brand-900">Performance Highlights</h3>
+                            <span class="text-xs font-mono text-brand-700">Showreel</span>
                         </div>
-                        <p class="text-sm text-brand-400 mb-4">
-                            A curated selection of my performance segments with Seagull K, including television appearances and competition solos.
+                        <p class="text-sm text-brand-800 mb-2">
+                            A curated selection of my featured performances with Seagull K, including television appearances, competition
+                            solos, and festival stages.
+                        </p>
+                        <p class="text-sm text-brand-800">
+                            These clips showcase not only vocal performance but also stage communication, arrangement choices, and ensemble dynamics.
                         </p>
                     </div>
                 </div>
 
-                <!-- Item 2: Cultural Project (Taiya Ancient Wisdom) -->
-                <div class="group bg-brand-800 rounded-xl overflow-hidden border border-brand-700 hover:border-accent-400/50 transition flex flex-col">
-                    <div class="h-48 bg-brand-700 flex items-center justify-center relative overflow-hidden">
-                        <div class="absolute inset-0 bg-gradient-to-br from-brand-700 to-brand-800"></div>
-                        <i data-lucide="globe-2" class="w-16 h-16 text-brand-500 relative z-10 group-hover:text-accent-400 transition duration-500"></i>
+                <!-- Item 2: Cultural Project -->
+                <div class="group bg-brand-300/70 rounded-2xl overflow-hidden border border-brand-500 hover:border-brand-700 transition flex flex-col">
+                    <div class="h-44 bg-gradient-to-br from-brand-500 to-brand-700 flex items-center justify-center">
+                        <i data-lucide="globe-2" class="w-12 h-12 text-brand-300 group-hover:scale-105 transition-transform duration-300"></i>
                     </div>
                     <div class="p-6 flex-1 flex flex-col">
                         <div class="flex justify-between items-start mb-2">
-                            <h3 class="text-lg font-bold text-brand-300">"Taiya Ancient Wisdom"</h3>
-                            <span class="text-xs font-mono text-brand-500">Cross-Cultural</span>
+                            <h3 class="text-lg font-semibold text-brand-900">"Taiya Ancient Wisdom"</h3>
+                            <span class="text-xs font-mono text-brand-700">Cross-Cultural</span>
                         </div>
                         
-                        <p class="text-sm text-brand-400 mb-4 flex-1">
-                            A collaborative project blending Indigenous Tayal chants with Hakka compositions. This work explores the intersection of ethnomusicology and contemporary vocal arrangement.
+                        <p class="text-sm text-brand-800 mb-4 flex-1">
+                            A collaborative project blending Indigenous Tayal chants with Hakka-influenced harmony writing. The arrangement
+                            balances respect for traditional melodic contours with contemporary a cappella textures.
                         </p>
                         
                         <div class="flex gap-3 mt-auto">
-                            <a href="https://streetvoice.com/seagullk/songs/" target="_blank" class="flex-1 py-2 text-center border border-brand-600 rounded hover:bg-brand-700 hover:text-brand-300 text-xs uppercase tracking-wider transition flex items-center justify-center gap-2">
+                            <a href="https://streetvoice.com/seagullk/songs/" target="_blank" class="flex-1 py-2 text-center border border-brand-600 rounded-lg hover:bg-brand-500/40 hover:text-brand-900 text-xs font-mono uppercase tracking-wider transition flex items-center justify-center gap-2">
                                 <i data-lucide="music-2" class="w-3 h-3"></i> Listen on StreetVoice
                             </a>
                         </div>
@@ -242,47 +331,56 @@
     </section>
 
     <!-- PERFORMANCE HISTORY -->
-    <section id="performances" class="py-20">
+    <section id="performances" class="py-16">
         <div class="max-w-4xl mx-auto px-6">
-            <div class="flex items-baseline justify-between mb-12 border-b border-brand-700 pb-4">
-                <h2 class="text-3xl font-serif text-brand-300">Selected Appearances</h2>
+            <div class="flex items-baseline justify-between mb-10 border-b border-brand-500/70 pb-4">
+                <h2 class="text-2xl md:text-3xl font-semibold text-brand-900">Selected Appearances</h2>
             </div>
 
-            <div class="relative border-l border-brand-700 ml-3 space-y-10">
+            <div class="relative border-l border-brand-500/70 ml-3 space-y-10">
                 
                 <!-- Award Item -->
                 <div class="relative pl-8 group">
-                    <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-brand-600 group-hover:bg-accent-500 transition"></div>
-                    <h4 class="text-lg font-bold text-brand-300">Hakka Pop Music Awards</h4>
-                    <p class="text-accent-400 text-sm mb-1">Award-Winning Arrangement</p>
-                    <p class="text-brand-400 text-sm">Recognized for original compositions contributing to linguistic preservation in modern pop contexts.</p>
+                    <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-brand-600 group-hover:bg-brand-900 transition"></div>
+                    <h4 class="text-lg font-semibold text-brand-900">Hakka Pop Music Awards</h4>
+                    <p class="text-xs font-mono text-brand-700 mb-1">Award-Winning Arrangement</p>
+                    <p class="text-sm text-brand-800">
+                        Recognized for original compositions that support linguistic preservation and bring Hakka identity into a modern
+                        pop and a cappella context.
+                    </p>
                 </div>
 
                 <!-- TV Item -->
                 <div class="relative pl-8 group">
-                    <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-brand-600 group-hover:bg-accent-500 transition"></div>
-                    <h4 class="text-lg font-bold text-brand-300">National Television Features</h4>
-                    <p class="text-accent-400 text-sm mb-1">Guest Performer</p>
-                    <p class="text-brand-400 text-sm">Featured appearances on major Taiwan networks (40+ minute showcase features) and Dongfeng Music Festival.</p>
+                    <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-brand-600 group-hover:bg-brand-900 transition"></div>
+                    <h4 class="text-lg font-semibold text-brand-900">National Television Features</h4>
+                    <p class="text-xs font-mono text-brand-700 mb-1">Guest Performer</p>
+                    <p class="text-sm text-brand-800">
+                        Featured on major Taiwanese TV programs and music festivals, including long-form performance segments that spotlight
+                        Seagull K's original arrangements and storytelling.
+                    </p>
                 </div>
 
                 <!-- Education Item -->
                 <div class="relative pl-8 group">
-                    <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-brand-600 group-hover:bg-accent-500 transition"></div>
-                    <h4 class="text-lg font-bold text-brand-300">Complete Vocal Arts Festival</h4>
-                    <p class="text-accent-400 text-sm mb-1">Organizer & Mentor</p>
-                    <p class="text-brand-400 text-sm">Regional initiative connecting youth a cappella groups through workshops and joint performances.</p>
+                    <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-brand-600 group-hover:bg-brand-900 transition"></div>
+                    <h4 class="text-lg font-semibold text-brand-900">Complete Vocal Arts Festival</h4>
+                    <p class="text-xs font-mono text-brand-700 mb-1">Organizer &amp; Mentor</p>
+                    <p class="text-sm text-brand-800">
+                        Organized workshops and joint performances that connect youth a cappella groups, focusing on vocal health, ensemble
+                        technique, and creative collaboration.
+                    </p>
                 </div>
 
             </div>
         </div>
     </section>
 
-    <footer class="py-12 border-t border-brand-700 text-center">
-        <a href="index.html" class="text-brand-500 hover:text-brand-300 text-sm transition mb-4 block">
+    <footer class="py-10 border-t border-brand-500/70 text-center">
+        <a href="index.html" class="text-sm font-mono text-brand-700 hover:text-brand-900 transition mb-3 block">
             &larr; Return to Research Portfolio
         </a>
-        <div class="text-brand-500 text-xs">
+        <div class="text-xs text-brand-700">
             &copy; 2024 Ting-Yu Pan • Artistic Profile
         </div>
     </footer>
