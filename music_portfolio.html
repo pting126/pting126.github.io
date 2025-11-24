@@ -187,8 +187,9 @@
 
     <!-- HERO SECTION -->
     <section class="relative pt-32 pb-20 px-6 overflow-hidden">
+        <canvas id="waveCanvasMusic" class="absolute inset-0 w-full h-full opacity-20 pointer-events-none"></canvas>
         <div class="absolute top-0 right-0 w-2/3 h-full bg-brand-800/30 -skew-x-12 -z-10 blur-3xl"></div>
-
+        
         <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <!-- Text Side -->
             <div class="order-2 lg:order-1 text-center lg:text-left">
@@ -606,7 +607,43 @@
                     if(card) card.classList.remove('is-playing');
                 });
             });
-        });
+        // --- WAVE BACKGROUND (similar to index) ---
+        const canvas = document.getElementById('waveCanvasMusic');
+        if (canvas) {
+            const ctx = canvas.getContext('2d');
+            let width, height, time = 0;
+    
+            function resize() {
+                width = canvas.width = canvas.offsetWidth;
+                height = canvas.height = canvas.offsetHeight;
+            }
+            window.addEventListener('resize', resize);
+            resize();
+    
+            function draw() {
+                ctx.clearRect(0, 0, width, height);
+                ctx.lineWidth = 2;
+                const colors = [
+                    'rgba(199, 191, 209, 0.25)', // brand-400
+                    'rgba(166, 156, 179, 0.15)'  // brand-500
+                ];
+                for (let i = 0; i < 2; i++) {
+                    ctx.beginPath();
+                    ctx.strokeStyle = colors[i];
+                    for (let x = 0; x < width; x++) {
+                        const y = height/2 +
+                                  Math.sin(x * 0.01 + time * 0.02) * 40 +
+                                  Math.sin(x * 0.02 + time * 0.01) * 20;
+                        if (x === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+                    }
+                    ctx.stroke();
+                }
+                time += 1;
+                requestAnimationFrame(draw);
+            }
+            draw();
+        }
+    });
     </script>
 </body>
 </html>
