@@ -43,10 +43,6 @@
     </script>
 
     <style>
-        /* Global font size boost */
-        html {
-            font-size: 18px;   /* everything becomes ~12.5% bigger */
-        }
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #494E65; }      /* brand-900 */
         ::-webkit-scrollbar-thumb { background: #717999; border-radius: 4px; } /* brand-700 */
@@ -66,6 +62,12 @@
             transition: width 0.3s;
         }
         .nav-link:hover::after { width: 100%; }
+
+        .soft-card {
+            box-shadow:
+                0 10px 25px rgba(0, 0, 0, 0.08),
+                0 1px 3px rgba(0, 0, 0, 0.05);
+        }
     </style>
 </head>
 <body class="bg-brand-900 text-brand-300 font-sans antialiased selection:bg-accent-400 selection:text-brand-900">
@@ -76,8 +78,9 @@
             <a href="#" class="font-mono text-xl font-bold text-accent-400 tracking-tighter">&lt;Ting-Yu Pan /&gt;</a>
             
             <div class="hidden md:flex space-x-8 text-sm font-medium text-brand-400">
-                <a href="#projects" class="nav-link hover:text-brand-300 transition">Projects</a>
+                <!-- order: Research first, then Projects -->
                 <a href="#research" class="nav-link hover:text-brand-300 transition">Research</a>
+                <a href="#projects" class="nav-link hover:text-brand-300 transition">Projects</a>
                 
                 <!-- LINK TO MUSIC PAGE -->
                 <a href="music_portfolio.html" class="nav-link hover:text-accent-400 transition text-accent-400">Music</a>
@@ -89,23 +92,24 @@
         </div>
         
         <div id="mobile-menu" class="hidden md:hidden bg-brand-800 border-t border-brand-600 p-4 space-y-4">
-            <a href="#projects" class="block text-brand-300 hover:text-accent-400">Projects</a>
             <a href="#research" class="block text-brand-300 hover:text-accent-400">Research</a>
+            <a href="#projects" class="block text-brand-300 hover:text-accent-400">Projects</a>
             <a href="music_portfolio.html" class="block text-accent-400 font-bold">Music</a>
             <a href="#cv" class="block text-brand-300">Curriculum Vitae</a>
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero Section (dark) -->
     <section class="relative min-h-[90vh] flex items-center justify-center overflow-hidden pt-20">
         <canvas id="waveCanvas" class="absolute top-0 left-0 w-full h-full opacity-30 pointer-events-none"></canvas>
         
         <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
-            
-            <!-- PORTRAIT IMAGE SECTION -->
+            <!-- PORTRAIT -->
             <div class="mb-8 relative inline-block group">
-                <div class="absolute inset-0 bg-accent-400 blur-xl opacity-20 rounded-full group-hover:opacity-30 transition duration-500"></div>
-                <img src="\files\images\TYP_portrait.jpg" alt="Ting-Yu Pan" class="relative w-48 h-48 md:w-64 md:h-64 rounded-full mx-auto object-cover border-4 border-brand-800 shadow-2xl">
+                <div class="absolute inset-0 bg-accent-400 blur-3xl opacity-20 rounded-full group-hover:opacity-30 transition duration-500"></div>
+                <img src="TYP_portrait.jpg"
+                     alt="Ting-Yu Pan"
+                     class="relative w-48 h-48 md:w-64 md:h-64 rounded-full mx-auto object-cover border-4 border-brand-800 shadow-2xl">
             </div>
 
             <div>
@@ -113,7 +117,7 @@
                     AI Music · Machine Learning · Signal Processing
                 </div>
                 <h1 class="text-4xl md:text-6xl font-bold text-brand-300 mb-6 tracking-tight">
-                    Sound, Code, &amp; <br>
+                    Sound, Code, & <br>
                     <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 to-brand-300">Research</span>
                 </h1>
                 <p class="text-lg text-brand-400 max-w-2xl mx-auto leading-relaxed mb-10">
@@ -126,8 +130,8 @@
                 <a href="music_portfolio.html" class="px-8 py-3 rounded-lg bg-accent-400 text-brand-900 font-bold hover:bg-accent-500 transition flex items-center justify-center gap-2 shadow-lg shadow-accent-400/20">
                     <i data-lucide="music" class="w-4 h-4"></i> View Artistic Profile
                 </a>
-                <a href="#projects" class="px-8 py-3 rounded-lg border border-brand-600 bg-brand-900/50 hover:bg-brand-800 transition flex items-center justify-center gap-2 text-brand-300">
-                    <i data-lucide="code-2" class="w-4 h-4"></i> Technical Projects
+                <a href="#research" class="px-8 py-3 rounded-lg border border-brand-600 bg-brand-900/50 hover:bg-brand-800 transition flex items-center justify-center gap-2 text-brand-300">
+                    <i data-lucide="microscope" class="w-4 h-4"></i> Research Overview
                 </a>
             </div>
 
@@ -135,143 +139,203 @@
                 <a href="https://github.com/pting126" target="_blank" class="hover:text-accent-400 transition">
                     <i data-lucide="github"></i>
                 </a>
-                <a href="https://www.linkedin.com/in/ting-yu-pan-umich" class="hover:text-accent-400 transition">
+                <a href="#" class="hover:text-accent-400 transition">
                     <i data-lucide="linkedin"></i>
                 </a>
-                <a href="mailto:pting@umich.edu" class="hover:text-accent-400 transition">
+                <a href="mailto:email@umich.edu" class="hover:text-accent-400 transition">
                     <i data-lucide="mail"></i>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Technical Projects -->
-    <section id="projects" class="py-20 bg-brand-900">
-        <div class="max-w-6xl mx-auto px-6">
-            <h2 class="text-3xl font-bold text-brand-300 mb-12 flex items-center gap-3">
-                <i data-lucide="cpu" class="text-accent-400"></i> Technical Projects
+    <!-- NEW: Research Interests Block (just under hero, still dark) -->
+    <section class="py-10 bg-brand-900 border-t border-brand-800">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="bg-brand-800/60 border border-brand-700 rounded-2xl p-6 md:p-8">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="p-2 rounded-full bg-brand-700 text-accent-400">
+                        <i data-lucide="sparkles" class="w-4 h-4"></i>
+                    </div>
+                    <h2 class="text-xl md:text-2xl font-bold text-brand-300">
+                        Research Interests
+                    </h2>
+                </div>
+                <p class="text-brand-300/90 mb-4">
+                    I design AI tools that sit inside real musical practice – especially small-group a cappella – rather than in abstract benchmarks.
+                </p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-brand-300/90">
+                    <div class="flex items-start gap-2">
+                        <i data-lucide="waveform" class="w-4 h-4 mt-0.5 text-accent-400"></i>
+                        <span>Source separation for SATB + vocal percussion in studio-quality a cappella recordings.</span>
+                    </div>
+                    <div class="flex items-start gap-2">
+                        <i data-lucide="users" class="w-4 h-4 mt-0.5 text-accent-400"></i>
+                        <span>AI-assisted rehearsal tools that visualize pitch, rhythm, and blend for ensemble singers.</span>
+                    </div>
+                    <div class="flex items-start gap-2">
+                        <i data-lucide="library" class="w-4 h-4 mt-0.5 text-accent-400"></i>
+                        <span>Multilingual a cappella dataset curation for real-world training and evaluation.</span>
+                    </div>
+                    <div class="flex items-start gap-2">
+                        <i data-lucide="sparkles" class="w-4 h-4 mt-0.5 text-accent-400"></i>
+                        <span>Human–AI co-creative systems that support, not replace, performers and arrangers.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Section (light, moved BEFORE projects) -->
+    <section id="research" class="py-20 bg-brand-400 border-t border-brand-500 text-brand-900">
+        <div class="max-w-5xl mx-auto px-6">
+            <h2 class="text-3xl font-bold text-brand-900 mb-12 flex items-center gap-3">
+                <i data-lucide="microscope" class="text-brand-700"></i> Research
             </h2>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="space-y-10">
 
-                <!-- Project: AcaMate / ACappellaSet Demo -->
-                <div class="bg-brand-800 rounded-xl p-6 border border-brand-600 hover:border-accent-400/50 transition group">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="p-3 bg-brand-700 rounded-lg text-accent-400">
-                            <i data-lucide="music-2"></i>
-                        </div>
-                        <a href="https://phyllisju.github.io/acappella-demo/" target="_blank"
-                           class="text-brand-500 hover:text-brand-300 transition flex items-center gap-1 text-xs font-mono">
-                            <i data-lucide="external-link" class="w-3 h-3"></i> Demo
-                        </a>
-                    </div>
-
-                    <h3 class="text-lg font-bold text-brand-300 mb-2 group-hover:text-accent-400 transition">
-                        AcaMate / ACappellaSet Web Demo
+                <!-- Paper 1: AcaMate (UIST 2025) -->
+                <div class="group relative pl-8 border-l-2 border-brand-600 hover:border-brand-800 transition">
+                    <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-brand-400 border-2 border-brand-600 group-hover:border-brand-800"></div>
+                    
+                    <h3 class="text-xl font-bold text-brand-900">
+                        AcaMate: Supporting Novice A Cappella Singers in Iterative Individual Practice
                     </h3>
-
-                    <p class="text-brand-400 text-sm mb-4 h-24 overflow-hidden">
-                        A browser-based demo showcasing AI-assisted rehearsal features powered by ACappellaSet,
-                        including SATB visualization, vocal percussion extraction, and practice feedback tools for a cappella singers.
-                        Built in collaboration with Kexin Phyllis Ju and Prof. Hao-Wen Dong.
+                    <p class="text-brand-700 text-sm font-mono mt-1">
+                        ACM UIST 2025 (Accepted)
                     </p>
+                    <p class="text-brand-800 mt-2 leading-relaxed">
+                        An AI-assisted rehearsal tool that visualizes pitch, rhythm, and dynamics to help novice a cappella singers
+                        practice more effectively with group recordings and receive structured feedback.
+                    </p>
+                    <a href="https://dl.acm.org/doi/full/10.1145/3746058.3758370"
+                       target="_blank"
+                       class="mt-3 inline-flex items-center gap-1 text-sm text-brand-900 hover:text-brand-800 underline underline-offset-4">
+                        <i data-lucide="external-link" class="w-3 h-3"></i> Paper
+                    </a>
+                </div>
 
-                    <div class="flex flex-wrap gap-2 mt-auto">
-                        <span class="text-xs font-mono bg-brand-700 text-brand-300 px-2 py-1 rounded">A Cappella</span>
-                        <span class="text-xs font-mono bg-brand-700 text-brand-300 px-2 py-1 rounded">Source Separation</span>
-                        <span class="text-xs font-mono bg-brand-700 text-brand-300 px-2 py-1 rounded">Human–AI Music</span>
-                    </div>
+                <!-- Paper 2: Curating an A Cappella Dataset (ISMIR LBD 2025) -->
+                <div class="group relative pl-8 border-l-2 border-brand-600 hover:border-brand-800 transition">
+                    <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-brand-400 border-2 border-brand-600 group-hover:border-brand-800"></div>
+                    
+                    <h3 class="text-xl font-bold text-brand-900">
+                        Curating an A Cappella Dataset for Source Separation
+                    </h3>
+                    <p class="text-brand-700 text-sm font-mono mt-1">
+                        ISMIR 2025 Late-Breaking Demo (Accepted)
+                    </p>
+                    <p class="text-brand-800 mt-2 leading-relaxed">
+                        A studio-quality, multilingual a cappella dataset and experimental pipeline for two-step source separation,
+                        focusing on vocal percussion isolation and SATB separation for more realistic rehearsal and production scenarios.
+                    </p>
+                    <a href="https://hermandong.com/pdf/pan2025acapella_lbd_paper.pdf"
+                       target="_blank"
+                       class="mt-3 inline-flex items-center gap-1 text-sm text-brand-900 hover:text-brand-800 underline underline-offset-4">
+                        <i data-lucide="external-link" class="w-3 h-3"></i> Paper
+                    </a>
+                </div>
+
+                <!-- Paper 3: ACappellaSet (NeurIPS 2025 AI for Music Workshop) -->
+                <div class="group relative pl-8 border-l-2 border-brand-600 hover:border-brand-800 transition">
+                    <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-brand-400 border-2 border-brand-600 group-hover:border-brand-800"></div>
+                    
+                    <h3 class="text-xl font-bold text-brand-900">
+                        ACappellaSet: A Multilingual A Cappella Dataset for Source Separation and AI-assisted Rehearsal Tools
+                    </h3>
+                    <p class="text-brand-700 text-sm font-mono mt-1">
+                        NeurIPS 2025 — AI for Music Workshop (Accepted)
+                    </p>
+                    <p class="text-brand-800 mt-2 leading-relaxed">
+                        A 55-song multilingual a cappella dataset (SATB + vocal percussion) recorded by professional ensembles,
+                        designed for training and evaluating models in source separation, rehearsal support, and AI music applications.
+                    </p>
+                    <a href="https://openreview.net/pdf?id=rAPN9Ir7jt"
+                       target="_blank"
+                       class="mt-3 inline-flex items-center gap-1 text-sm text-brand-900 hover:text-brand-800 underline underline-offset-4">
+                        <i data-lucide="external-link" class="w-3 h-3"></i> Paper
+                    </a>
                 </div>
 
             </div>
         </div>
     </section>
 
-    <!-- Research Section -->
-    <section id="research" class="py-20 bg-brand-800 border-t border-brand-600">
-        <div class="max-w-5xl mx-auto px-6">
-            <h2 class="text-3xl font-bold text-brand-300 mb-12 flex items-center gap-3">
-                <i data-lucide="microscope" class="text-accent-400"></i> Research
+    <!-- Technical Projects (light body, now a single feature card) -->
+    <section id="projects" class="py-20 bg-brand-300 text-brand-900">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-3xl font-bold text-brand-900 mb-8 flex items-center gap-3">
+                <i data-lucide="cpu" class="text-brand-700"></i> Technical Project
             </h2>
 
-            <div class="space-y-10">
+            <div class="bg-white/95 rounded-2xl p-8 md:p-10 border border-brand-500 hover:border-brand-700/80 transition soft-card md:flex md:items-center md:gap-10">
+                <!-- Icon / Tag column -->
+                <div class="md:w-1/3 mb-6 md:mb-0 flex flex-col gap-4">
+                    <div class="inline-flex items-center gap-3">
+                        <div class="p-3 bg-brand-300 rounded-xl text-brand-800">
+                            <i data-lucide="music-2" class="w-6 h-6"></i>
+                        </div>
+                        <span class="text-xs font-mono uppercase tracking-widest text-brand-600">
+                            Web Demo
+                        </span>
+                    </div>
+                    <div class="space-y-2">
+                        <p class="text-xs font-mono text-brand-600 uppercase tracking-wider">Keywords</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs font-mono bg-brand-300 text-brand-900 px-2 py-1 rounded">A Cappella</span>
+                            <span class="text-xs font-mono bg-brand-300 text-brand-900 px-2 py-1 rounded">Source Separation</span>
+                            <span class="text-xs font-mono bg-brand-300 text-brand-900 px-2 py-1 rounded">Human–AI Music</span>
+                        </div>
+                    </div>
+                    <a href="https://phyllisju.github.io/acappella-demo/"
+                       target="_blank"
+                       class="inline-flex items-center justify-center mt-2 px-4 py-2 rounded-lg border border-brand-600 text-sm font-medium text-brand-800 hover:bg-brand-100 transition">
+                        <i data-lucide="external-link" class="w-4 h-4 mr-1"></i>
+                        Open Demo
+                    </a>
+                </div>
 
-    <!-- AcaMate -->
-    <div class="group relative pl-8 border-l-2 border-brand-600 hover:border-accent-400 transition">
-        <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-brand-800 border-2 border-brand-600 group-hover:border-accent-400"></div>
-        <h3 class="text-xl font-bold text-brand-300">
-            AcaMate: An Interactive A Cappella Rehearsal and Learning Tool
-        </h3>
-        <p class="text-accent-400 text-sm font-mono mt-1">ACM UIST 2025 (Accepted)</p>
-        <p class="text-brand-400 mt-2 leading-relaxed">
-            An interactive system combining source separation, visual feedback, and real-time vocal analysis to support novice singers in developing pitch, timing, and blend.
-        </p>
-        <a href="https://dl.acm.org/doi/full/10.1145/3746058.3758370"
-           target="_blank"
-           class="mt-3 inline-flex items-center gap-1 text-sm text-brand-400 hover:text-brand-300 underline underline-offset-4">
-           <i data-lucide="external-link" class="w-3 h-3"></i> Paper
-        </a>
-    </div>
-
-    <!-- ISMIR LBD -->
-    <div class="group relative pl-8 border-l-2 border-brand-600 hover:border-accent-400 transition">
-        <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-brand-800 border-2 border-brand-600 group-hover:border-accent-400"></div>
-        <h3 class="text-xl font-bold text-brand-300">
-            Curating an A Cappella Dataset for Source Separation
-        </h3>
-        <p class="text-accent-400 text-sm font-mono mt-1">ISMIR 2025 Late-Breaking Demo (Accepted)</p>
-        <p class="text-brand-400 mt-2 leading-relaxed">
-            A curated collection of multilingual a cappella stems for training and evaluating separation models, focusing on ensemble blend, VP detection, and timbral diversity.
-        </p>
-        <a href="https://openreview.net/pdf?id=rAPN9Ir7jt"
-           target="_blank"
-           class="mt-3 inline-flex items-center gap-1 text-sm text-brand-400 hover:text-brand-300 underline underline-offset-4">
-           <i data-lucide="external-link" class="w-3 h-3"></i> Paper
-        </a>
-    </div>
-
-    <!-- ACappellaSet -->
-    <div class="group relative pl-8 border-l-2 border-brand-600 hover:border-accent-400 transition">
-        <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-brand-800 border-2 border-brand-600 group-hover:border-accent-400"></div>
-        <h3 class="text-xl font-bold text-brand-300">
-            ACappellaSet: A Multilingual A Cappella Dataset for Source Separation and AI-Assisted Rehearsal Tools
-        </h3>
-        <p class="text-accent-400 text-sm font-mono mt-1">NeurIPS 2025 — AI for Music Workshop (Accepted)</p>
-        <p class="text-brand-400 mt-2 leading-relaxed">
-            A multilingual, multi-microphone studio dataset of isolated a cappella stems designed for machine learning tasks including separation, alignment, and vocal coaching.
-        </p>
-        <a href="https://hermandong.com/pdf/pan2025acapella_lbd_paper.pdf"
-           target="_blank"
-           class="mt-3 inline-flex items-center gap-1 text-sm text-brand-400 hover:text-brand-300 underline underline-offset-4">
-           <i data-lucide="external-link" class="w-3 h-3"></i> Paper
-        </a>
-    </div>
-
-</div>
-            
+                <!-- Description column -->
+                <div class="md:flex-1">
+                    <h3 class="text-2xl font-bold text-brand-900 mb-3">
+                        AcaMate / ACappellaSet Web Demo
+                    </h3>
+                    <p class="text-brand-700 text-sm md:text-base leading-relaxed mb-4">
+                        A browser-based demo showcasing AI-assisted rehearsal features powered by <span class="font-semibold">ACappellaSet</span>.
+                        The interface demonstrates SATB visualization, vocal percussion extraction, and practice-along tools for ensemble singers.
+                    </p>
+                    <p class="text-brand-700 text-sm md:text-base leading-relaxed">
+                        Built in collaboration with <span class="font-semibold">Kexin Phyllis Ju</span> and
+                        <span class="font-semibold">Prof. Hao-Wen Dong</span>, this project connects my research on a cappella source separation
+                        and rehearsal support with an interactive, accessible web experience.
+                    </p>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <!-- CV / CONTACT -->
-    <section id="cv" class="py-20 bg-brand-900 border-t border-brand-600">
+    <!-- CV / CONTACT (light) -->
+    <section id="cv" class="py-20 bg-brand-300 border-t border-brand-500 text-brand-900">
         <div class="max-w-4xl mx-auto px-6 text-center">
-            <h2 class="text-3xl font-bold text-brand-300 mb-6">Curriculum Vitae</h2>
-            <p class="text-brand-400 mb-10 max-w-lg mx-auto">
+            <h2 class="text-3xl font-bold text-brand-900 mb-6">Curriculum Vitae</h2>
+            <p class="text-brand-700 mb-10 max-w-lg mx-auto">
                 I’m currently refining my full CV. If you’d like the most up-to-date version or more details about my work,
                 please feel free to reach out via email.
             </p>
             
             <div class="flex justify-center gap-4">
                 <a href="mailto:email@umich.edu?subject=CV%20Request%20-%20Ting-Yu%20Pan"
-                   class="flex items-center justify-center gap-2 px-8 py-4 bg-accent-400 text-brand-900 font-bold rounded-lg hover:bg-accent-500 transition shadow-lg shadow-accent-400/10">
+                   class="flex items-center justify-center gap-2 px-8 py-4 bg-brand-900 text-brand-300 font-bold rounded-lg hover:bg-brand-800 transition shadow-lg shadow-brand-700/20">
                     <i data-lucide="mail" class="w-5 h-5"></i> Request Latest CV
                 </a>
             </div>
             
-            <div class="mt-16 pt-8 border-t border-brand-600 flex flex-col md:flex-row justify-between items-center text-brand-500 text-sm">
+            <div class="mt-16 pt-8 border-t border-brand-500 flex flex-col md:flex-row justify-between items-center text-brand-700 text-sm">
                 <span>&copy; 2025 Ting-Yu Pan.</span>
                 <div class="flex gap-6 mt-4 md:mt-0">
-                    <a href="https://github.com/pting126" target="_blank" class="hover:text-brand-300 transition">GitHub</a>
-                    <a href="mailto:email@umich.edu" class="hover:text-brand-300 transition">Contact</a>
+                    <a href="https://github.com/pting126" target="_blank" class="hover:text-brand-900 transition">GitHub</a>
+                    <a href="mailto:email@umich.edu" class="hover:text-brand-900 transition">Contact</a>
                 </div>
             </div>
         </div>
@@ -307,14 +371,14 @@
                 'rgba(167, 171, 191, 0.15)'  // brand-500
             ];
             
-            for (let i = 0; i < 2; i++) {
+            for(let i = 0; i < 2; i++) {
                 ctx.beginPath();
                 ctx.strokeStyle = colors[i];
-                for (let x = 0; x < width; x++) {
+                for(let x = 0; x < width; x++) {
                     const y = height / 2 + 
                               Math.sin(x * 0.01 + time * 0.02) * 50 +
                               Math.sin(x * 0.02 + time * 0.01) * 25;
-                    if (x === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+                    if(x === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
                 }
                 ctx.stroke();
             }
