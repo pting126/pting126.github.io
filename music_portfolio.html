@@ -114,6 +114,47 @@
         audio::-webkit-media-controls-panel {
             background-color: #C7BFD1;
         }
+
+        /* --- VINYL ANIMATION --- */
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        /* The spinning part */
+        .vinyl-disc {
+            animation: spin 4s linear infinite;
+            animation-play-state: paused; /* Default paused */
+        }
+        /* When playing, we unpause the animation */
+        .audio-card.is-playing .vinyl-disc {
+            animation-play-state: running;
+        }
+        /* Outer glow when active */
+        .audio-card.is-playing .vinyl-wrapper {
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+            border-color: #FFD700;
+        }
+
+        /* --- TECH SPEC GRID STYLE --- */
+        .spec-grid {
+            display: grid;
+            grid-template-columns: minmax(80px, auto) 1fr;
+            column-gap: 1rem;
+            row-gap: 0.5rem;
+            font-size: 0.875rem; /* text-sm */
+        }
+        .spec-label {
+            font-family: 'JetBrains Mono', monospace;
+            color: #C7BFD1; /* brand-400 */
+            font-size: 0.75rem; /* text-xs */
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding-top: 0.2rem;
+        }
+        .spec-value {
+            color: #EBE6F2; /* brand-300 */
+            line-height: 1.5;
+        }
     </style>
 </head>
 
