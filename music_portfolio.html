@@ -219,97 +219,154 @@
                     <i data-lucide="film" class="text-brand-400"></i> Media & Performance
                 </h3>
                 
-                <!-- Grid for Videos -->
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-
-                    <!-- ENGLISH COVER (The Full Song) -->
+                    
+                    <!-- ENGLISH COVER (Grid Layout) -->
                     <div class="hover-card bg-brand-800/50 rounded-xl p-4 border border-brand-700 flex flex-col">
                         <div class="flex items-center justify-between mb-3">
-                            <h4 class="font-bold text-brand-200">English Cover</h4>
-                            <span class="text-[10px] uppercase tracking-wider text-brand-400 font-mono">Repertoire Example</span>
+                            <!-- UPDATED TITLE -->
+                            <h4 class="font-bold text-brand-200">Pop A Cappella Cover</h4>
+                            <span class="text-[10px] uppercase tracking-wider text-brand-400 font-mono">Repertoire</span>
                         </div>
                         <div class="video-container shadow-lg rounded-lg mb-4">
-                            <!-- New English Cover Video -->
                             <iframe src="https://www.youtube.com/embed/OwwydIYHRu8" title="Seagull K - English Cover" allowfullscreen></iframe>
                         </div>
-                        <p class="text-xs text-brand-300 leading-relaxed">
-                            "Stay" arrangement. Demonstrating ensemble blend and versatility in English-language repertoire, contrasting with our traditional works.
-                        </p>
+                        
+                        <!-- Tech Spec Grid -->
+                        <div class="spec-grid mt-auto">
+                            <div class="spec-label">Original</div>
+                            <div class="spec-value">"Stay" (The Kid LAROI / Justin Bieber)</div>
+                            
+                            <div class="spec-label">Technique</div>
+                            <div class="spec-value">Vocal Percussion & Audio FX for full-band simulation.</div>
+                            
+                            <div class="spec-label">Focus</div>
+                            <div class="spec-value">Contemporary A Cappella: combining human voice with audio technology to build sonic variety.</div>
+                        </div>
                     </div>
                     
-                    <!-- REEL (The Overview) -->
+                    <!-- REEL (Grid Layout) -->
                     <div class="hover-card bg-brand-800/50 rounded-xl p-4 border border-brand-700 flex flex-col">
                         <div class="flex items-center justify-between mb-3">
-                            <h4 class="font-bold text-brand-200">Performance Reel</h4>
+                            <h4 class="font-bold text-brand-200">Live Performance Reel</h4>
                             <span class="text-[10px] uppercase tracking-wider text-brand-400 font-mono">Highlights</span>
                         </div>
                         <div class="video-container shadow-lg rounded-lg mb-4">
                             <iframe src="https://drive.google.com/file/d/1JQiVHoanZhLyumEj9CPGyCKcxTd92fJh/preview" allow="autoplay" allowfullscreen></iframe>
                         </div>
-                        <p class="text-xs text-brand-300 leading-relaxed">
-                            A fast-paced overview of TV appearances, competitions, and concert solos.
-                        </p>
+                        
+                        <!-- Tech Spec Grid -->
+                        <div class="spec-grid mt-auto">
+                            <div class="spec-label">Content</div>
+                            <div class="spec-value">Live Concerts, TV Features, & Competition Finals.</div>
+                            
+                            <div class="spec-label">Format</div>
+                            <div class="spec-value">Live Performance Montage.</div>
+                            
+                            <div class="spec-label">Focus</div>
+                            <div class="spec-value">Real-time ensemble coordination, staging, and performance energy.</div>
+                        </div>
                     </div>
 
                 </div>
             </div>
 
-            <!-- 2. ORIGINAL ARRANGEMENTS (Audio Demos) -->
+            <!-- 2. ORIGINAL ARRANGEMENTS (Grid Layout) -->
             <div class="mb-16">
                 <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
-                    <i data-lucide="music" class="text-brand-400"></i> Selected Composition / Arrangements (Demos)
+                    <i data-lucide="music" class="text-brand-400"></i> Selected Arrangements (Demos)
                 </h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     
-                    <!-- Demo 1: Taiya -->
-                    <div class="bg-brand-800 rounded-xl p-6 border border-brand-700 hover:border-brand-400 transition group">
-                        <div class="flex justify-between items-start mb-4">
-                            <div>
-                                <h4 class="text-lg font-bold text-white">頭前(teu qien)</h4>
-                                <p class="text-xs font-mono text-brand-400 uppercase tracking-wider mt-1">Cultural Fusion • Hakka × Atayal</p>
-                            </div>
-                            <div class="p-2 bg-brand-700 rounded-full text-brand-300 group-hover:text-white transition">
-                                <i data-lucide="play-circle" class="w-6 h-6"></i>
+                    <!-- Demo 1: Teu Qien -->
+                    <div class="audio-card bg-brand-800 rounded-xl p-6 border border-brand-700 hover:border-brand-400 transition group flex flex-col sm:flex-row gap-6">
+                        <!-- Left: Vinyl -->
+                        <div class="flex-shrink-0 flex justify-center items-center">
+                            <div class="vinyl-wrapper w-32 h-32 rounded-full border-4 border-brand-600 bg-black relative flex items-center justify-center transition-all duration-500">
+                                <div class="vinyl-disc w-full h-full rounded-full absolute inset-0 flex items-center justify-center" 
+                                     style="background: repeating-radial-gradient(#111 0, #111 4px, #222 5px, #222 6px);">
+                                     <div class="w-12 h-12 rounded-full bg-gradient-to-br from-accent-gold to-brand-400 border-2 border-black shadow-inner flex items-center justify-center">
+                                         <i data-lucide="waves" class="w-6 h-6 text-brand-900"></i>
+                                     </div>
+                                </div>
                             </div>
                         </div>
-                        <p class="text-sm text-brand-300 mb-4">
-                            An original Seagull-K composition blending Hakka and Atayal languages. The title Teu Qien reflects ‘the past,’ ‘looking forward,’ and the river of our hometown. The arrangement unifies these meanings into a single vocal texture.
-                        </p>
-                        <div class="bg-brand-900/50 p-3 rounded-lg">
-                            <audio controls src="/files/audio/audio1_river.mp3"></audio>
+
+                        <!-- Right: Content (Grid) -->
+                        <div class="flex-1 flex flex-col">
+                            <div class="mb-3">
+                                <h4 class="text-lg font-bold text-white">頭前<br><span class="text-sm text-brand-300 font-normal">(teu qien)</span></h4>
+                                <p class="text-xs font-mono text-brand-400 uppercase tracking-wider">CULTURAL FUSION • HAKKA × ATAYAL</p>
+                            </div>
+                            
+                            <div class="spec-grid mb-4 flex-1">
+                                <div class="spec-label">Meaning</div>
+                                <div class="spec-value">Triple entendre in Hakka: Past, Future, & Hometown River.</div>
+                                
+                                <div class="spec-label">Fusion</div>
+                                <div class="spec-value">Intertwines Hakka & Atayal languages.</div>
+                                
+                                <div class="spec-label">Tech</div>
+                                <div class="spec-value">Polyphonic linguistic layering.</div>
+                            </div>
+                            
+                            <div class="mt-auto">
+                                <div class="bg-brand-900/50 p-2 rounded-lg">
+                                    <audio controls src="/file/audio/audio1_river.mp3"></audio>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Demo 2: Hakka Swing -->
-                    <div class="bg-brand-800 rounded-xl p-6 border border-brand-700 hover:border-brand-400 transition group">
-                        <div class="flex justify-between items-start mb-4">
-                            <div>
-                                <h4 class="text-lg font-bold text-white">還吂上車個旅客(hai mak song che ke luek)</h4>
-                                <p class="text-xs font-mono text-brand-400 uppercase tracking-wider mt-1">Hakka Swing</p>
-                            </div>
-                            <div class="p-2 bg-brand-700 rounded-full text-brand-300 group-hover:text-white transition">
-                                <i data-lucide="play-circle" class="w-6 h-6"></i>
+                    <!-- Demo 2: Hakka Jazz -->
+                    <div class="audio-card bg-brand-800 rounded-xl p-6 border border-brand-700 hover:border-brand-400 transition group flex flex-col sm:flex-row gap-6">
+                        <!-- Left: Vinyl -->
+                        <div class="flex-shrink-0 flex justify-center items-center">
+                            <div class="vinyl-wrapper w-32 h-32 rounded-full border-4 border-brand-600 bg-black relative flex items-center justify-center transition-all duration-500">
+                                <div class="vinyl-disc w-full h-full rounded-full absolute inset-0 flex items-center justify-center" 
+                                     style="background: repeating-radial-gradient(#111 0, #111 4px, #222 5px, #222 6px);">
+                                     <div class="w-12 h-12 rounded-full bg-gradient-to-br from-brand-600 to-brand-300 border-2 border-black shadow-inner flex items-center justify-center">
+                                         <i data-lucide="train-front" class="w-6 h-6 text-brand-900"></i>
+                                     </div>
+                                </div>
                             </div>
                         </div>
-                        <p class="text-sm text-brand-300 mb-4">
-                            An original composition inspired by Hakka train station announcements. ‘Passengers Who Haven’t Boarded Yet’ reimagines this everyday soundscape through Swing, using extended harmonies and walking bass to bridge folk language with modern groove.
-                        </p>
-                        <div class="bg-brand-900/50 p-3 rounded-lg">
-                            <audio controls src="/files/audio/audio2_traveler.mp3"></audio>
+
+                        <!-- Right: Content (Grid) -->
+                        <div class="flex-1 flex flex-col">
+                            <div class="mb-3">
+                                <h4 class="text-lg font-bold text-white">還吂上車個旅客<br><span class="text-sm text-brand-300 font-normal">(hai mak song che ke luek)</span></h4>
+                                <p class="text-xs font-mono text-brand-400 uppercase tracking-wider mt-1">TRADITIONAL DIALECT • SWING GROOVE</p>
+                            </div>
+                            
+                            <div class="spec-grid mb-4 flex-1">
+                                <div class="spec-label">Inspiration</div>
+                                <div class="spec-value">Train station announcements ("Passengers not yet boarded").</div>
+                                
+                                <div class="spec-label">Harmony</div>
+                                <div class="spec-value">Diatonic triads & 7ths with added color tones (add2/9).</div>
+                                
+                                <div class="spec-label">Rhythm</div>
+                                <div class="spec-value">Walking bass line & Swing groove.</div>
+                            </div>
+                            
+                            <div class="mt-auto">
+                                <div class="bg-brand-900/50 p-2 rounded-lg">
+                                    <audio controls src="/file/audio/audio2_traveler.mp3"></audio>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
                 </div>
             </div>
 
-            <!-- 3. HISTORY & IMPACT (The Three Rectangles) -->
+            <!-- 3. HISTORY & IMPACT -->
             <div class="border-t border-brand-700 pt-10">
                 <h3 class="text-xl font-bold text-white mb-8">Ensemble History & Impact</h3>
                 
-                <!-- Grid of 3 Cards -->
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    
-                    <!-- Card 1: Awards -->
+                    <!-- Card 1 -->
                     <div class="bg-brand-800/50 p-6 rounded-xl border border-brand-700 hover:border-brand-500 transition group flex flex-col">
                         <div class="mb-4 p-3 bg-brand-700 w-fit rounded-lg text-brand-300 group-hover:text-white group-hover:bg-brand-600 transition">
                             <i data-lucide="trophy" class="w-6 h-6"></i>
@@ -321,22 +378,19 @@
                             <li><strong>Dongfeng Music Festival:</strong> Original composition award.</li>
                         </ul>
                     </div>
-
-                    <!-- Card 2: Media & Performance (UPDATED) -->
+                    <!-- Card 2 -->
                     <div class="bg-brand-800/50 p-6 rounded-xl border border-brand-700 hover:border-brand-500 transition group flex flex-col">
                         <div class="mb-4 p-3 bg-brand-700 w-fit rounded-lg text-brand-300 group-hover:text-white group-hover:bg-brand-600 transition">
                             <i data-lucide="tv" class="w-6 h-6"></i>
                         </div>
                         <h4 class="text-lg font-bold text-white mb-2">Media & Performance</h4>
                         <ul class="text-sm text-brand-300 space-y-2 leading-relaxed list-disc pl-4 flex-1">
-                            <li><strong>500+ Shows:</strong> Extensive touring including an 8-day, 26-show island tour record.</li>
+                            <li><strong>500+ Shows:</strong> Including 8-day, 26-show island tour.</li>
                             <li><strong>TV Features:</strong> FTV "Strongest Variety Show", SET "Super Night Club".</li>
-                            <!-- Updated Bullet Point -->
                             <li><strong>City Countdowns:</strong> Featured artist for New Year's Eve Concerts in two major cities.</li>
                         </ul>
                     </div>
-
-                    <!-- Card 3: Education -->
+                    <!-- Card 3 -->
                     <div class="bg-brand-800/50 p-6 rounded-xl border border-brand-700 hover:border-brand-500 transition group flex flex-col">
                         <div class="mb-4 p-3 bg-brand-700 w-fit rounded-lg text-brand-300 group-hover:text-white group-hover:bg-brand-600 transition">
                             <i data-lucide="graduation-cap" class="w-6 h-6"></i>
@@ -344,17 +398,16 @@
                         <h4 class="text-lg font-bold text-white mb-2">Education & Outreach</h4>
                         <ul class="text-sm text-brand-300 space-y-2 leading-relaxed list-disc pl-4 flex-1">
                             <li><strong>Founded HCAC:</strong> Hsinchu Contemporary A Cappella Center.</li>
-                            <li><strong>Project K:</strong> Established youth training program mentoring next-gen talent.</li>
+                            <li><strong>Project K:</strong> Youth training program mentoring next-gen talent.</li>
                             <li><strong>Workshops:</strong> "Complete Vocal Arts Festival" organizer.</li>
                         </ul>
                     </div>
-
                 </div>
             </div>
 
         </div>
     </section>
-    
+
     <!-- SECTION DIVIDER -->
     <div class="max-w-5xl mx-auto px-6">
         <div class="section-divider">
@@ -362,8 +415,7 @@
         </div>
     </div>
 
-
-   <!-- PART II: INDIVIDUAL (SOLO) -->
+    <!-- PART II: INDIVIDUAL (SOLO) -->
     <section id="individual" class="py-16">
         <div class="max-w-6xl mx-auto px-6">
             
@@ -375,14 +427,14 @@
                     </div>
                     <h2 class="text-3xl md:text-4xl font-serif text-white">Individual Works</h2>
                     <p class="text-brand-300 mt-2 max-w-2xl">
-                        Solo projects focusing on full-band production, songwriting, and acoustic recording.
+                        Selected solo projects focusing on full-band production, songwriting, and acoustic recording.
                     </p>
                 </div>
             </div>
 
             <div class="space-y-20">
                 
-                <!-- Work 1: NTHU Song (Prioritized for Production Complexity) -->
+                <!-- Work 1: NTHU Song (Grid Layout) -->
                 <div class="grid grid-cols-1 md:grid-cols-12 gap-10 items-center">
                     <div class="md:col-span-5 order-2 md:order-1">
                         <h3 class="text-2xl font-bold text-white mb-3">NTHU Graduation Song</h3>
@@ -391,11 +443,20 @@
                             <span class="px-3 py-1 bg-brand-800 text-brand-200 text-xs font-medium rounded-full border border-brand-700">Composer</span>
                             <span class="px-3 py-1 bg-brand-800 text-brand-200 text-xs font-medium rounded-full border border-brand-700">Vocalist</span>
                         </div>
-                        <p class="text-brand-300 text-sm leading-relaxed mb-4 border-l-2 border-brand-600 pl-4">
-                            I led the entire production for the 2023 official National Tsing Hua University graduation anthem. This project demonstrates my ability to manage large-scale sessions, including band recording, vocal layering, and mix direction.
-                        </p>
-                        <!-- Added Note -->
-                        <p class="text-xs text-accent-gold font-mono flex items-center gap-2">
+                        
+                        <!-- Tech Spec Grid -->
+                        <div class="spec-grid mb-4 pl-2 border-l-2 border-brand-600">
+                            <div class="spec-label">Role</div>
+                            <div class="spec-value">Lead Producer, Arranger & Composer. Composed the song and organized the full band to deliver the artistic vision.</div>
+                            
+                            <div class="spec-label">Scope</div>
+                            <div class="spec-value">Managed large-scale sessions involving full band tracking and vocal layering.</div>
+                            
+                            <div class="spec-label">Outcome</div>
+                            <div class="spec-value">Served as National Tsing Hua University 2023 official graduation song.</div>
+                        </div>
+
+                        <p class="text-xs text-accent-gold font-mono flex items-center gap-2 mt-4">
                             <i data-lucide="play" class="w-3 h-3"></i> * Music starts at 0:30
                         </p>
                     </div>
@@ -406,7 +467,7 @@
                     </div>
                 </div>
 
-                <!-- Work 2: "I'm All About You" -->
+                <!-- Work 2: "I'm All About You" (Grid Layout) -->
                 <div class="grid grid-cols-1 md:grid-cols-12 gap-10 items-center">
                     <div class="md:col-span-5 order-2 md:order-1">
                         <h3 class="text-2xl font-bold text-white mb-3">"I'm All About You"</h3>
@@ -415,9 +476,18 @@
                             <span class="px-3 py-1 bg-brand-800 text-brand-200 text-xs font-medium rounded-full border border-brand-700">Piano</span>
                             <span class="px-3 py-1 bg-brand-800 text-brand-200 text-xs font-medium rounded-full border border-brand-700">Mixing</span>
                         </div>
-                        <p class="text-brand-300 text-sm leading-relaxed mb-6 border-l-2 border-brand-600 pl-4">
-                            An original song written, performed, and engineered entirely by myself. Features intimate piano-vocal recording and mixing, showcasing my ability to execute a complete musical vision from composition to final master.
-                        </p>
+                        
+                        <!-- Tech Spec Grid (UPDATED TO MATCH SONG 1) -->
+                        <div class="spec-grid mb-4 pl-2 border-l-2 border-brand-600">
+                            <div class="spec-label">Role</div>
+                            <div class="spec-value">Sole Creator (Songwriter, Performer, Engineer).</div>
+                            
+                            <div class="spec-label">Scope</div>
+                            <div class="spec-value">Executed the complete independent workflow: Composition → Recording → Mixing.</div>
+                            
+                            <div class="spec-label">Outcome</div>
+                            <div class="spec-value">A polished acoustic work demonstrating the ability to independently bridge artistic expression with audio engineering.</div>
+                        </div>
                     </div>
                     <div class="md:col-span-7 order-1 md:order-2">
                         <div class="video-container shadow-2xl ring-1 ring-brand-700/50">
@@ -440,9 +510,7 @@
         </div>
     </footer>
 
-   
     <script>
-        // Ensure icons render on load
         document.addEventListener("DOMContentLoaded", () => {
             lucide.createIcons();
 
@@ -455,35 +523,36 @@
                 });
             }
 
-            // History Toggle Logic
-            const toggleHistory = document.getElementById('toggle-history');
-            const fullHistory = document.getElementById('full-history');
-            const toggleIcon = document.getElementById('toggle-icon');
-            const toggleText = document.getElementById('toggle-text');
+            // --- AUDIO VINYL LOGIC ---
+            const audioPlayers = document.querySelectorAll('audio');
+            
+            audioPlayers.forEach(player => {
+                // When audio starts playing
+                player.addEventListener('play', () => {
+                    // 1. Pause all other players first (optional but good UX)
+                    audioPlayers.forEach(p => {
+                        if(p !== player) {
+                            p.pause();
+                            p.closest('.audio-card').classList.remove('is-playing');
+                        }
+                    });
 
-            if (toggleHistory && fullHistory) {
-                toggleHistory.addEventListener('click', () => {
-                    fullHistory.classList.toggle('hidden');
-                    const isHidden = fullHistory.classList.contains('hidden');
-                    
-                    // Update Icon
-                    if (toggleIcon) {
-                        toggleIcon.innerHTML = isHidden 
-                            ? '<i data-lucide="chevron-down" class="w-4 h-4"></i>' 
-                            : '<i data-lucide="chevron-up" class="w-4 h-4"></i>';
-                    }
-                    
-                    // Update Text
-                    if (toggleText) {
-                        toggleText.textContent = isHidden 
-                            ? "Show Full Timeline (2010-2022)" 
-                            : "Hide Timeline";
-                    }
-                    
-                    // Re-render icons after content change
-                    lucide.createIcons();
+                    // 2. Animate THIS card
+                    const card = player.closest('.audio-card');
+                    if(card) card.classList.add('is-playing');
                 });
-            }
+
+                // When audio pauses or ends
+                player.addEventListener('pause', () => {
+                    const card = player.closest('.audio-card');
+                    if(card) card.classList.remove('is-playing');
+                });
+                
+                player.addEventListener('ended', () => {
+                    const card = player.closest('.audio-card');
+                    if(card) card.classList.remove('is-playing');
+                });
+            });
         });
     </script>
 </body>
