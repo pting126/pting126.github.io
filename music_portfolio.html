@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ting-Yu Pan | Artistic Profile</title>
+    <meta name="description" content="Music, performance, composition, and a cappella work by Ting-Yu Pan, a Computer Science PhD student at UIUC and core member of Seagull-K.">
+    <meta name="theme-color" content="#494e65">
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -169,23 +171,30 @@
         <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
             <a href="index.html" class="font-mono text-sm md:text-base font-semibold text-brand-200 tracking-tight flex items-center gap-2 hover:text-white transition">
                 <i data-lucide="arrow-left" class="w-4 h-4"></i>
-                <span>&lt; Back to Research /&gt;</span>
+                <span>Ting-Yu Pan / Music</span>
             </a>
             
-            <div class="hidden md:flex gap-8 text-sm font-medium text-brand-400">
-                <a href="#seagullk" class="hover:text-white transition">Part I: Seagull K</a>
-                <a href="#individual" class="hover:text-white transition">Part II: Individual</a>
+            <div class="hidden md:flex gap-6 text-sm font-medium text-brand-400">
+                <a href="index.html#about" class="hover:text-white transition">About</a>
+                <a href="index.html#publications" class="hover:text-white transition">Publications</a>
+                <a href="index.html#projects" class="hover:text-white transition">Projects</a>
+                <a href="#seagullk" aria-current="page" class="text-white">Music</a>
+                <a href="assets/Ting-Yu_Pan_CV.pdf" class="hover:text-white transition">CV (PDF)</a>
             </div>
 
-            <button id="menu-btn" class="md:hidden text-brand-200">
+            <button id="menu-btn" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="mobile-menu" class="md:hidden text-brand-200">
                 <i data-lucide="menu"></i>
             </button>
         </div>
 
         <!-- Mobile menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-brand-800 border-t border-brand-700 p-4 space-y-3 text-sm font-medium text-brand-200">
+            <a href="index.html#about" class="block hover:text-white">About</a>
+            <a href="index.html#publications" class="block hover:text-white">Publications</a>
+            <a href="index.html#projects" class="block hover:text-white">Projects</a>
             <a href="#seagullk" class="block hover:text-white">Seagull K (Group)</a>
             <a href="#individual" class="block hover:text-white">Individual Works</a>
+            <a href="assets/Ting-Yu_Pan_CV.pdf" class="block hover:text-white">CV (PDF)</a>
         </div>
     </nav>
 
@@ -241,7 +250,7 @@
                     </div>
                     <h2 class="text-3xl md:text-4xl font-serif text-white">Seagull-K Ensemble</h2>
                     <p class="text-brand-300 mt-2 max-w-2xl">
-                         Professional A Cappella Group (10+ Years). Primary context for my a cappella dataset, source separation, and music generation research.
+                         I’m a core member of Seagull-K, a professional contemporary a cappella group. My musical work spans performance, arrangement, composition, and vocal coaching, and informs my research on a cappella audio and rehearsal tools.
                     </p>
                 </div>
                 <a href="https://allmy.bio/seagullk.tw" target="_blank" class="px-4 py-2 border border-brand-600 hover:bg-brand-700 text-brand-300 text-sm rounded transition flex items-center gap-2">
@@ -409,7 +418,8 @@
 
             <!-- 3. HISTORY & IMPACT -->
             <div class="border-t border-brand-700 pt-10">
-                <h3 class="text-xl font-bold text-white mb-8">Ensemble History & Impact</h3>
+                <h3 class="text-xl font-bold text-white mb-4">Ensemble History & Impact</h3>
+                <p class="text-brand-300 text-sm mb-8">The following highlights describe Seagull-K’s collective achievements. My professional a cappella work dates to 2015; my contributions include performing, co-arranging, contributing to original compositions, and coaching student ensembles.</p>
                 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <!-- Card 1 -->
@@ -563,21 +573,43 @@
         <a href="index.html" class="inline-flex items-center gap-2 text-brand-400 hover:text-white text-sm transition mb-4">
             <i data-lucide="arrow-left" class="w-4 h-4"></i> Return to Research Portfolio
         </a>
+        <div class="flex flex-wrap justify-center gap-6 text-sm text-brand-300 mb-4">
+            <a href="assets/Ting-Yu_Pan_CV.pdf" class="hover:text-white">CV (PDF)</a>
+            <a href="mailto:tingyup2@illinois.edu" class="hover:text-white">Email</a>
+        </div>
         <div class="text-xs text-brand-500">
-            &copy; 2025 Ting-Yu Pan • Artistic Profile
+            &copy; <span data-current-year>2026</span> Ting-Yu Pan • Artistic Profile
         </div>
     </footer>
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            lucide.createIcons();
+            if (window.lucide) lucide.createIcons();
+            document.querySelectorAll('[data-current-year]').forEach(element => {
+                element.textContent = new Date().getFullYear();
+            });
 
             // Mobile Nav
             const menuBtn = document.getElementById('menu-btn');
             const mobileMenu = document.getElementById('mobile-menu');
             if (menuBtn && mobileMenu) {
                 menuBtn.addEventListener('click', () => {
-                    mobileMenu.classList.toggle('hidden');
+                    const expanded = menuBtn.getAttribute('aria-expanded') !== 'true';
+                    mobileMenu.classList.toggle('hidden', !expanded);
+                    menuBtn.setAttribute('aria-expanded', String(expanded));
+                });
+                const closeMenu = () => {
+                    mobileMenu.classList.add('hidden');
+                    menuBtn.setAttribute('aria-expanded', 'false');
+                };
+                mobileMenu.addEventListener('click', event => {
+                    if (event.target.closest('a')) closeMenu();
+                });
+                document.addEventListener('keydown', event => {
+                    if (event.key === 'Escape' && menuBtn.getAttribute('aria-expanded') === 'true') {
+                        closeMenu();
+                        menuBtn.focus();
+                    }
                 });
             }
 
