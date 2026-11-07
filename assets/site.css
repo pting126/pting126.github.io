@@ -82,19 +82,20 @@ h1 { font-size: clamp(2.3rem, 4.2vw, 3.6rem); letter-spacing: -.045em; font-weig
 .project-card h3 { font-size: 1.5rem; margin-bottom: 1rem; }
 .project-card p:not(.project-category) { font-size: .93rem; color: var(--muted); }
 .project-card .collaborators { font-size: .8rem !important; margin-bottom: 1.5rem; }
+.project-card .project-status { font-size: .8rem; margin: 0 0 1.25rem; }
+.project-resources { display: flex; flex-wrap: wrap; align-items: center; gap: .8rem 1.25rem; margin-top: auto; }
+.project-resources .text-link { margin-top: 0; }
+.project-card .dataset-access { font-size: .78rem; margin-top: 1rem; }
 .text-link { font-size: .85rem; font-weight: 650; margin-top: auto; }
 .music-section { background: #e9ebf3; }
 .music-grid { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 3rem; align-items: center; }
 .music-grid img { width: 100%; height: 300px; border-radius: 12px; object-fit: cover; }
 .music-grid h2 { margin-bottom: 1.2rem; }
 .music-grid p:not(.eyebrow) { font-size: .95rem; color: var(--muted); }
-.contact-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .8fr); gap: 3rem; align-items: center; }
-.contact-grid h2 { margin-bottom: 1rem; }
-.contact-grid p { color: var(--muted); font-size: .93rem; }
+.contact-content h2 { margin-bottom: 1rem; }
+.contact-content p { color: var(--muted); font-size: .93rem; }
 .contact-email { display: inline-block; font-size: 1.15rem; margin-top: .6rem; overflow-wrap: anywhere; }
-.contact-grid .contact-affiliation { margin-top: 1.4rem; font-size: .83rem; }
-.cv-card { padding: 2rem; border: 1px solid var(--line); border-radius: 12px; background: #fff; }
-.cv-card p { margin: .8rem 0 1.4rem; }
+.contact-content .contact-affiliation { margin-top: 1.4rem; font-size: .83rem; }
 .site-footer { background: var(--brand); color: #dcdee6; padding: 1.5rem 0; font-size: .8rem; }
 .footer-content { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
 .footer-content > div { display: flex; flex-wrap: wrap; gap: 1.5rem; }
@@ -105,7 +106,7 @@ h1 { font-size: clamp(2.3rem, 4.2vw, 3.6rem); letter-spacing: -.045em; font-weig
     .portrait img { width: 210px; height: 210px; }
     .hero { padding-block: 4rem; }
     .interest-grid { gap: 1.2rem; }
-    .music-grid, .contact-grid { gap: 2rem; }
+    .music-grid { gap: 2rem; }
 }
 @media (max-width: 680px) {
     :root { scroll-padding-top: 5.5rem; }
@@ -124,9 +125,9 @@ h1 { font-size: clamp(2.3rem, 4.2vw, 3.6rem); letter-spacing: -.045em; font-weig
     .affiliation { font-size: .85rem; }
     .profile-links { gap: 1.15rem; }
     .section { padding-block: 3rem; }
-    .interest-grid, .project-grid, .music-grid, .contact-grid { grid-template-columns: 1fr; }
+    .interest-grid, .project-grid, .music-grid { grid-template-columns: 1fr; }
     .interest-grid { gap: 1.7rem; }
-    .project-card, .cv-card { padding: 1.5rem; }
+    .project-card { padding: 1.5rem; }
     .music-grid img { height: 230px; }
 }
 @media (prefers-reduced-motion: reduce) {
