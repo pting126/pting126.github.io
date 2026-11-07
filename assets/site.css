@@ -63,8 +63,7 @@ h1 { font-size: clamp(2.3rem, 4.2vw, 3.6rem); letter-spacing: -.045em; font-weig
 .interests { background: #eceef5; }
 .interest-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; }
 .interest-grid article { border-top: 1px solid #bcc2d4; padding-top: 1rem; }
-.topic-number { color: #646d8a; font: .8rem ui-monospace, monospace; }
-.interest-grid h3 { margin: .75rem 0; }
+.interest-grid h3 { margin: 0 0 .75rem; }
 .interest-grid p { font-size: .94rem; color: var(--muted); }
 .publications { background: #fff; position: relative; }
 .anchor-alias { position: absolute; top: 0; scroll-margin-top: 6rem; }
